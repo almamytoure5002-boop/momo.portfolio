@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Veille Technologique | Muhammed T</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		/* Styles supplémentaires pour la page veille */
+		.content-section {
+			margin-bottom: 35px;
+		}
+
+		.content-section p {
+			text-align: justify;
+			text-justify: inter-word;
+		}
+
+		.section-label {
+			display: inline-block;
+			background: linear-gradient(135deg, blueviolet, #1f6feb);
+			color: white;
+			padding: 8px 20px;
+			border-radius: 20px;
+			font-size: 0.9rem;
+			font-weight: 600;
+			margin-bottom: 15px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+
+		.problematique-box {
+			background: rgba(31, 111, 235, 0.1);
+			border-left: 4px solid #1f6feb;
+			padding: 20px;
+			border-radius: 8px;
+			font-style: italic;
+			color: #f0f0f0;
+			font-size: 1.1rem;
+			margin-top: 10px;
+			text-align: justify;
+		}
+
+		.opinion-box {
+			background: linear-gradient(145deg, rgba(138, 43, 226, 0.15), rgba(31, 111, 235, 0.15));
+			border-left: 4px solid blueviolet;
+			padding: 25px;
+			border-radius: 8px;
+			margin-top: 10px;
+		}
+
+		.opinion-box p {
+			color: #e8e8e8;
+			font-size: 1.05rem;
+			line-height: 1.8;
+			text-align: justify;
+		}
+
+		/* Grande section explication veille */
+		.veille-explanation {
+			background: linear-gradient(145deg, rgba(138, 43, 226, 0.1), rgba(31, 111, 235, 0.1));
+			backdrop-filter: blur(10px);
+			border: 2px solid rgba(31, 111, 235, 0.3);
+			border-radius: 15px;
+			padding: 40px;
+			margin-bottom: 50px;
+		}
+
+		.veille-explanation h3 {
+			font-size: 2rem;
+			color: #1f6feb;
+			margin-bottom: 25px;
+			text-align: center;
+		}
+
+		.veille-explanation h4 {
+			font-size: 1.4rem;
+			color: blueviolet;
+			margin-top: 30px;
+			margin-bottom: 15px;
+		}
+
+		.veille-explanation p {
+			text-align: justify;
+			line-height: 1.8;
+			margin-bottom: 15px;
+			color: #c9d1d9;
+		}
+
+		.tools-detailed {
+			margin-top: 25px;
+		}
+
+		.tool-item {
+			background: rgba(138, 43, 226, 0.1);
+			border-left: 3px solid blueviolet;
+			padding: 20px;
+			margin-bottom: 20px;
+			border-radius: 8px;
+		}
+
+		.tool-item h5 {
+			color: #1f6feb;
+			font-size: 1.2rem;
+			margin-bottom: 10px;
+		}
+
+		.tool-item p {
+			color: #c9d1d9;
+			text-align: justify;
+		}
+
+		/* Section Sources */
+		.sources-section {
+			margin-top: 50px;
+			padding-top: 40px;
+			border-top: 2px solid rgba(31, 111, 235, 0.3);
+		}
+
+		.sources-title {
+			font-size: 1.8rem;
+			color: #1f6feb;
+			text-align: center;
+			margin-bottom: 35px;
+			position: relative;
+			padding-bottom: 15px;
+		}
+
+		.sources-title::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 60px;
+			height: 3px;
+			background: linear-gradient(90deg, blueviolet, #1f6feb);
+		}
+
+		.sources-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 25px;
+		}
+
+		.source-card {
+			background: linear-gradient(145deg, rgba(138, 43, 226, 0.1), rgba(31, 111, 235, 0.1));
+			backdrop-filter: blur(10px);
+			border: 2px solid rgba(138, 43, 226, 0.3);
+			border-radius: 12px;
+			padding: 25px;
+			transition: all 0.3s;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.source-card:hover {
+			transform: translateY(-5px);
+			border-color: blueviolet;
+			box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
+		}
+
+		.source-icon {
+			font-size: 2rem;
+			margin-bottom: 15px;
+		}
+
+		.source-card h6 {
+			font-size: 1.1rem;
+			color: #f0f0f0;
+			margin-bottom: 12px;
+			line-height: 1.4;
+			font-weight: 600;
+			flex-grow: 1;
+		}
+
+		.source-name {
+			font-size: 0.9rem;
+			color: #9ca3af;
+			margin-bottom: 15px;
+			font-style: italic;
+		}
+
+		.source-link {
+			display: inline-block;
+			padding: 10px 20px;
+			background: linear-gradient(135deg, blueviolet, #1f6feb);
+			color: white;
+			text-decoration: none;
+			border-radius: 20px;
+			font-size: 0.9rem;
+			font-weight: 500;
+			transition: all 0.3s;
+			text-align: center;
+		}
+
+		.source-link:hover {
+			transform: scale(1.05);
+			box-shadow: 0 5px 15px rgba(138, 43, 226, 0.5);
+		}
+
+		/* Responsive */
+		@media (max-width: 968px) {
+			.sources-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		@media (max-width: 576px) {
+			.sources-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.sources-title {
+				font-size: 1.5rem;
+			}
+
+			.veille-explanation {
+				padding: 25px 20px;
+			}
+		}
+	</style>
+</head>
+<body>
+    <header class="Acceuil">
+        <div>
+            <a class="nom" href="">Muhammed Touray</a>
+        </div>
+        <nav class="menu">
+            <a href="index.html">Accueil</a>
+            <a href="Competences.html">Compétences</a>
+            <a href="Veille_technologique.html">Veille technologique</a>
+            <a href="Contact.html">Contact</a>
+            <a href="projets.html"><button class="bouton">Projet</button></a>
+        </nav>
+    </header> 
+
+	<section class="veille-section">
+		<div class="veille-container">
+			<!-- Introduction générale -->
+			<div class="veille-intro">
+				<h2 class="veille-title">Qu'est-ce que la <span>veille technologique</span> ?</h2>
+			</div>
+
+			<!-- GRANDE SECTION EXPLICATION VEILLE -->
+			<div class="veille-explanation">
+				<h3>La Veille Technologique : Définition et Importance</h3>
+				
+				<p>
+					La veille technologique est un processus systématique et organisé de collecte, d'analyse et de diffusion d'informations stratégiques concernant les évolutions technologiques, scientifiques et techniques dans un domaine spécifique. Dans le secteur de l'informatique et du numérique, qui connaît une croissance exponentielle et des innovations constantes, la veille technologique devient un outil indispensable pour rester à jour et compétitif.
+				</p>
+
+				<p>
+					Cette pratique permet aux professionnels et aux étudiants du domaine informatique d'anticiper les changements, d'identifier les tendances émergentes, de découvrir de nouvelles opportunités et d'adapter leurs compétences aux exigences du marché. La veille technologique ne se limite pas à la simple lecture d'articles : elle implique une démarche active de sélection, de traitement et d'exploitation de l'information pour en tirer une valeur ajoutée concrète.
+				</p>
+
+				<p>
+					Pour un étudiant en BTS SIO option SLAM, la veille technologique est particulièrement cruciale car elle permet de suivre l'évolution rapide des langages de programmation, des frameworks, des méthodologies de développement, et des problématiques actuelles comme la cybersécurité et l'intelligence artificielle. Elle contribue également au développement d'une expertise professionnelle et d'une capacité d'adaptation essentielle dans le monde du travail.
+				</p>
+
+				<h4>Mes Outils de Veille et Leur Utilité</h4>
+
+				<div class="tools-detailed">
+					<div class="tool-item">
+						<h5>🔖 Feedly</h5>
+						<p>
+							Feedly est un agrégateur de flux RSS qui me permet de centraliser en un seul endroit tous les sites web, blogs et sources d'information que je souhaite suivre. Grâce à son interface intuitive, je peux organiser mes sources par thématiques (cybersécurité, IA, développement web, etc.) et consulter rapidement les dernières publications. Cet outil est particulièrement efficace pour ne manquer aucune actualité importante et gagner du temps dans ma collecte d'informations.
+						</p>
+					</div>
+
+					<div class="tool-item">
+						<h5>📱 Instagram</h5>
+						<p>
+							Bien qu'Instagram soit principalement un réseau social orienté visuel, il s'est imposé comme une plateforme incontournable pour la veille technologique. De nombreux experts en informatique, développeurs et chercheurs y partagent des infographies, des tutoriels courts et des actualités tech sous forme visuelle et accessible. Je suis notamment des comptes spécialisés en cybersécurité et en intelligence artificielle qui vulgarisent des concepts complexes et partagent les dernières découvertes de manière engageante.
+						</p>
+					</div>
+
+					<div class="tool-item">
+						<h5>🔄 n8n</h5>
+						<p>
+							n8n est un outil d'automatisation workflow qui me permet d'automatiser ma veille technologique. Je l'utilise pour créer des scénarios automatisés qui collectent des informations depuis diverses sources (flux RSS, APIs, sites web), les filtrent selon mes critères, et me les envoient de manière structurée. Cet outil me fait gagner un temps considérable en automatisant les tâches répétitives de collecte et de tri d'informations, me permettant de me concentrer sur l'analyse et l'exploitation des données pertinentes.
+						</p>
+					</div>
+
+					<div class="tool-item">
+						<h5>📺 YouTube</h5>
+						<p>
+							YouTube est devenu une source incontournable pour la veille technologique grâce à l'abondance de contenus éducatifs de qualité. Je suis plusieurs chaînes spécialisées en informatique, cybersécurité et intelligence artificielle qui publient régulièrement des analyses approfondies, des démonstrations pratiques et des interviews d'experts. Le format vidéo permet une meilleure compréhension de concepts complexes et offre souvent des démonstrations concrètes impossibles à reproduire dans un article écrit. Je m'abonne notamment à des chaînes qui couvrent les conférences techniques, les tutoriels avancés et les actualités du secteur tech.
+						</p>
+					</div>
+				</div>
+
+				<p style="margin-top: 30px;">
+					L'utilisation combinée de ces quatre outils me permet d'avoir une veille technologique complète et diversifiée. Feedly pour les articles de fond, Instagram pour les actualités visuelles rapides, YouTube pour les analyses vidéo approfondies, et n8n pour automatiser et optimiser l'ensemble du processus. Cette approche multicanale garantit que je reste informé des dernières évolutions dans mes domaines d'intérêt tout en adaptant le format de consommation de l'information à mes besoins et à mon emploi du temps.
+				</p>
+			</div>
+
+			<!-- Outils de veille (badges simplifiés) -->
+			<div class="veille-tools">
+				<h3 class="section-subtitle">Mes outils de veille</h3>
+				<div class="tools-list">
+					<span class="tool-badge">Feedly</span>
+					<span class="tool-badge">Instagram</span>
+					<span class="tool-badge">n8n</span>
+					<span class="tool-badge">YouTube</span>
+				</div>
+			</div>
+
+			<!-- Sujets de veille -->
+			<div class="veille-topics">
+				<h3 class="section-subtitle">Mes sujets de veille</h3>
+
+				<!-- ========== SUJET 1 : IA et Cybersécurité ========== -->
+				<div class="topic-card">
+					<div class="topic-header">
+						<span class="topic-number">01</span>
+						<h4 class="topic-title">Utilisation de l'IA dans la cybersécurité</h4>
+					</div>
+
+					<!-- Introduction -->
+					<div class="content-section">
+						<span class="section-label">Introduction</span>
+						<p>
+							L'intelligence artificielle révolutionne aujourd'hui tous les secteurs, et la cybersécurité ne fait pas exception. Dans un monde où les cyberattaques se multiplient et gagnent en sophistication, l'IA apparaît comme une solution prometteuse pour renforcer la défense des systèmes informatiques. Capable d'analyser des millions de données en temps réel, de détecter des anomalies invisibles à l'œil humain et d'anticiper les menaces, elle transforme profondément les méthodes de protection numérique.
+						</p>
+						<p>
+							Cependant, cette technologie présente un double visage : si elle offre des outils puissants aux professionnels de la sécurité, elle devient également une arme redoutable entre les mains des cybercriminels. L'IA permet d'automatiser les attaques, de personnaliser les intrusions et de contourner les systèmes de défense traditionnels avec une efficacité inédite.
+						</p>
+					</div>
+
+					<!-- Problématique -->
+					<div class="content-section">
+						<span class="section-label">Problématique</span>
+						<div class="problematique-box">
+							Comment l'intelligence artificielle transforme-t-elle à la fois les stratégies de défense et d'attaque en cybersécurité, et quels enjeux éthiques et techniques soulève son utilisation dans ce domaine ?
+						</div>
+					</div>
+
+					<!-- Résumé -->
+					<div class="content-section">
+						<span class="section-label">Résumé</span>
+						<p>
+							L'intelligence artificielle joue un rôle dual dans le domaine de la cybersécurité. Du côté défensif, elle permet d'automatiser la détection des menaces grâce à l'apprentissage automatique, d'identifier des comportements suspects sur les réseaux et de réagir plus rapidement aux incidents. Les systèmes basés sur l'IA peuvent reconnaître des schémas d'attaques complexes, analyser des volumes massifs de données et anticiper certaines failles avant leur exploitation.
+						</p>
+						<p>
+							Parallèlement, les techniques d'attaque évoluent également grâce à l'IA. Les cybercriminels utilisent des algorithmes intelligents pour automatiser leurs opérations, créer des malwares adaptatifs, générer des emails de phishing ultra-personnalisés et contourner les systèmes de défense traditionnels. Cette course à l'armement numérique crée un équilibre instable où chaque avancée défensive est rapidement contrecarrée par de nouvelles méthodes offensives.
+						</p>
+						<p>
+							Cette dualité soulève des questions éthiques fondamentales : comment réguler l'usage de l'IA en cybersécurité ? Qui contrôle ces technologies ? Comment garantir qu'elles servent la protection plutôt que la nuisance ? La réponse nécessite une collaboration internationale, un cadre juridique adapté et une vigilance constante des acteurs du secteur.
+						</p>
+					</div>
+
+					<!-- Conclusion -->
+					<div class="content-section">
+						<span class="section-label">Conclusion</span>
+						<p>
+							L'intelligence artificielle représente un tournant majeur dans l'histoire de la cybersécurité. Elle offre des opportunités sans précédent pour renforcer la protection des infrastructures numériques, mais elle comporte également des risques considérables si elle est mal utilisée ou détournée. Cette technologie illustre parfaitement le concept de « double tranchant » : un même outil peut servir à protéger ou à attaquer, selon qui le manie et dans quel but.
+						</p>
+						<p>
+							Face à cette réalité, la communauté internationale doit adopter une approche responsable et collaborative. Il est essentiel de développer des normes éthiques, de former les professionnels aux nouveaux enjeux, et de sensibiliser le grand public aux risques liés à l'IA malveillante. L'avenir de la cybersécurité dépendra de notre capacité à encadrer cette technologie tout en exploitant son potentiel pour construire un environnement numérique plus sûr et plus résilient.
+						</p>
+					</div>
+
+					<!-- Mon Opinion -->
+					<div class="content-section">
+						<span class="section-label">Mon Opinion</span>
+						<div class="opinion-box">
+							<p>
+								En tant qu'étudiant en BTS SIO option SLAM avec un intérêt particulier pour la cybersécurité, je suis fasciné par le potentiel de l'intelligence artificielle dans ce domaine. Je pense que l'IA représente l'avenir inévitable de la cybersécurité, car la complexité et le volume des menaces dépassent déjà les capacités humaines d'analyse et de réponse. Les outils d'IA que j'ai pu étudier, notamment dans le cadre de ma veille technologique, démontrent une efficacité impressionnante dans la détection d'anomalies et la prévention d'attaques.
+							</p>
+							<p>
+								Cependant, je partage les inquiétudes concernant l'utilisation malveillante de ces technologies. Le fait que les cybercriminels puissent également exploiter l'IA pour leurs attaques crée une situation paradoxale où la technologie censée nous protéger devient elle-même une menace. Cette réalité me conforte dans l'idée qu'une formation solide en cybersécurité doit désormais inclure une compréhension approfondie de l'intelligence artificielle, tant dans ses applications défensives qu'offensives. C'est d'ailleurs pour cette raison que j'ai choisi ce sujet pour ma veille technologique, et je compte continuer à approfondir mes connaissances dans ce domaine tout au long de ma carrière professionnelle.
+							</p>
+						</div>
+					</div>
+
+					<!-- Sources Sujet 1 -->
+					<div class="sources-section">
+						<h5 class="sources-title">Sources et articles liés</h5>
+						<div class="sources-grid">
+							<div class="source-card">
+								<div class="source-icon">🔗</div>
+								<h6>L'IA au service de la cybersécurité : Veille techonlogie</h6>
+								<p class="source-name">Cyberbagarre</p>
+								<a href="https://www.instagram.com/reel/DJltN3usR8f/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="source-link">Voir video</a>
+							</div>
+
+							<div class="source-card">
+								<div class="source-icon">🔗</div>
+								<h6>Comment l'intelligence artificielle détecte les cybermenaces en temps réel</h6>
+								<p class="source-name">Les Échos Tech</p>
+								<a href="#" class="source-link">Lire l'article</a>
+							</div>
+
+							<div class="source-card">
+								<div class="source-icon">🔗</div>
+								<h6>IA et hacking : quand les cybercriminels utilisent l'apprentissage automatique</h6>
+								<p class="source-name">Clubic Sécurité</p>
+								<a href="#" class="source-link">Lire l'article</a>
+							</div>
+
+							<div class="source-card">
+								<div class="source-icon">🔗</div>
+								<h6>Éthique de l'IA en cybersécurité : enjeux et perspectives</h6>
+								<p class="source-name">MIT Technology Review</p>
+								<a href="#" class="source-link">Lire l'article</a>
+							</div>
+
+							<div class="source-card">
+								<div class="source-icon">🔗</div>
+								<h6>Machine Learning et détection d'intrusions : état de l'art</h6>
+								<p class="source-name">IEEE Security & Privacy</p>
+								<a href="#" class="source-link">Lire l'article</a>
+							</div>
+
+							<div class="source-card">
+								<div class="source-icon">🔗</div>
+								<h6>Les nouveaux visages du phishing assisté par IA</h6>
+								<p class="source-name">ANSSI - Agence Nationale de la Sécurité</p>
+								<a href="#" class="source-link">Lire l'article</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ========== SUJET 2 : Impact de l'IA au quotidien ========== -->
+				<div class="topic-card">
+					<div class="topic-header">
+						<span class="topic-number">02</span>
+						<h4 class="topic-title">Impact de l'utilisation de l'IA au quotidien sur l'humanité</h4>
+					</div>
+
+					<!-- Introduction -->
+					<div class="content-section">
+						<span class="section-label">Introduction</span>
+						<p>
+							L'intelligence artificielle s'est progressivement imposée dans notre quotidien, transformant en profondeur nos modes de vie, nos interactions sociales et nos méthodes de travail. Des assistants vocaux aux algorithmes de recommandation, en passant par les diagnostics médicaux automatisés et les systèmes de navigation, l'IA est désormais omniprésente. Cette intégration massive soulève des questions essentielles sur l'avenir de notre société et la place de l'humain dans un monde de plus en plus automatisé.
+						</p>
+						<p>
+							Si l'IA apporte des bénéfices indéniables en termes de confort, d'efficacité et d'innovation, elle génère également des inquiétudes légitimes concernant la protection de la vie privée, les biais algorithmiques, la dépendance technologique et l'impact sur l'emploi. Comprendre ces transformations devient crucial pour naviguer sereinement dans cette nouvelle ère numérique.
+						</p>
+					</div>
+
+					<!-- Problématique -->
+					<div class="content-section">
+						<span class="section-label">Problématique</span>
+						<div class="problematique-box">
+							Comment l'intelligence artificielle transforme-t-elle nos vies quotidiennes et quels sont les enjeux sociaux, éthiques et humains liés à son omniprésence ?
+						</div>
+					</div>
+
+					<!-- Résumé -->
+					<div class="content-section">
+						<span class="section-label">Résumé</span>
+						<p>
+							L'intelligence artificielle s'est infiltrée dans tous les aspects de notre vie quotidienne. Dans nos téléphones, elle anticipe nos besoins, corrige nos textes et organise nos journées. Sur les réseaux sociaux, elle sélectionne les contenus que nous voyons, influençant subtilement nos opinions et nos comportements. Dans le domaine de la santé, elle assiste les médecins dans leurs diagnostics et permet des avancées majeures dans la recherche médicale. Au travail, elle automatise les tâches répétitives et optimise les processus, transformant profondément l'organisation du travail.
+						</p>
+						<p>
+							Cependant, cette omniprésence pose des défis majeurs. L'IA influence nos choix et nos comportements de manière souvent invisible, soulevant des questions sur notre libre arbitre et notre autonomie. La collecte massive de données personnelles nécessaire au fonctionnement de ces systèmes pose des problèmes de confidentialité et de surveillance. Les biais algorithmiques peuvent perpétuer ou amplifier les discriminations existantes. Sur le plan économique et social, l'automatisation croissante menace certains emplois et creuse la fracture numérique entre ceux qui maîtrisent ces technologies et ceux qui les subissent.
+						</p>
+						<p>
+							Face à ces enjeux, une réflexion collective s'impose. Il est essentiel de développer une IA responsable, transparente et éthique, qui serve l'intérêt général plutôt que des intérêts particuliers. Cela implique une régulation adaptée, une éducation au numérique généralisée, et une vigilance constante pour garantir que l'IA reste un outil au service de l'humanité et non une force qui la domine.
+						</p>
+					</div>
+
+					<!-- Conclusion -->
+					<div class="content-section">
+						<span class="section-label">Conclusion</span>
+						<p>
+							L'intelligence artificielle façonne déjà notre présent et continuera de modeler notre avenir. Son impact sur l'humanité est profond et multidimensionnel, touchant aussi bien nos pratiques individuelles que l'organisation collective de nos sociétés. Si elle offre des opportunités extraordinaires pour améliorer notre qualité de vie, résoudre des problèmes complexes et repousser les limites de la connaissance, elle comporte également des risques qu'il serait dangereux d'ignorer.
+						</p>
+						<p>
+							L'enjeu principal n'est pas de rejeter cette technologie, mais de l'encadrer intelligemment pour qu'elle reste alignée avec nos valeurs humaines fondamentales. Cela nécessite un dialogue constant entre développeurs, régulateurs, utilisateurs et citoyens. L'avenir de notre relation avec l'IA dépendra de notre capacité collective à construire un cadre éthique solide, à développer notre esprit critique face aux algorithmes, et à veiller à ce que le progrès technologique serve le progrès humain dans son ensemble.
+						</p>
+					</div>
+
+					<!-- Mon Opinion -->
+					<div class="content-section">
+						<span class="section-label">Mon Opinion</span>
+						<div class="opinion-box">
+							<p>
+								Ce sujet de veille me touche particulièrement car, en tant que jeune adulte de ma génération, je constate quotidiennement l'influence de l'IA sur mon propre comportement et celui de mes proches. Que ce soit à travers les recommandations de contenu sur YouTube, les suggestions d'Instagram, ou même les corrections automatiques de mon smartphone, l'IA fait partie intégrante de ma vie numérique. Cette omniprésence m'amène à m'interroger régulièrement sur ma propre autonomie face à ces technologies.
+							</p>
+							<p>
+								Je suis convaincu que l'IA apporte de réels bénéfices, notamment dans les domaines de la santé, de l'éducation et de l'accessibilité. Cependant, je partage les inquiétudes concernant la création de bulles de filtres, la manipulation des opinions et la dépendance technologique. En tant que futur professionnel de l'informatique, je me sens investi d'une responsabilité particulière : celle de comprendre ces technologies pour mieux les concevoir de manière éthique et responsable. C'est pourquoi je considère qu'une formation complète en développement doit désormais inclure une réflexion approfondie sur l'impact sociétal des solutions que nous créons. Mon objectif est de contribuer au développement d'une intelligence artificielle qui augmente les capacités humaines sans les remplacer, et qui respecte la dignité et l'autonomie de chaque individu.
+							</p>
+						</div>
+					</div>
+
+					<!-- Sources Sujet 2 -->
+					<div class="sources-section">
+						<h5 class="sources-title">Sources et articles liés</h5>
+						<div class="sources-grid">
+							<div class="source-card">
+								<div class="source-icon">🔗</div>
+								<h6>L'IA dans notre quotidien : entre facilité et dépendance</h6>
+								<p class="source-name">Une fille.IA</p>
+								<a href="https://www.instagram.com/unefille.ia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="source-link">Voir compte</a>
+							</div>
+
+							<div class="source-card">
+								<div class="source-icon">🔗</div>
+								<h6>Intelligence artificielle et nous</h6>
+								<p class="source-name">estherium_</p>
+								<a href="https://www.instagram.com/estherium__?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="source-link">Voir compte</a>
+							</div>
+
+							<div class="source-card">
+								<div class="source-icon">🔗</div>
+								<h6>La fabrique à Idiot: l'IA vas nous remplacer</h6>
+								<p class="source-name">Micode</p>
+								<a href="https://youtu.be/4xq6bVbS-Pw?si=hIkyS4w6a5CRKF6N" class="source-link">Voir video</a>
+							</div>
+
+							<div class="source-card">
+							<div class="source-icon">🔗</div>
+							<h6>IA et santé : révolution médicale ou déshumanisation ?</h6>
+							<p class="source-name">Futura Santé</p>
+							<a href="#" class="source-link">Lire l'article</a>
+						</div>
+
+						<div class="source-card">
+							<div class="source-icon">🔗</div>
+							<h6>Éthique de l'IA : construire une technologie responsable</h6>
+							<p class="source-name">UNESCO - Rapport sur l'IA</p>
+							<a href="#" class="source-link">Lire l'article</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+	<div class="footer-container">
+		<div class="footer-about">
+			<h3>À propos</h3>
+			<p>
+				Étudiant en BTS SIO option SISR passionné par le développement web et la cybersécurité. 
+				Découvrez mes projets, mon parcours et mes compétences à travers ce portfolio.
+			</p>
+			<div class="social-links">
+				<a href="https://www.linkedin.com/in/seignon-zinsou-98aa5a32a" class="social-link" target="_blank">in</a>
+				<a href="#" class="social-link">📧</a>
+				<a href="#" class="social-link">💻</a>
+			</div>
+		</div>
+
+		<div class="footer-links">
+			<h4>Navigation</h4>
+			<ul>
+				<li><a href="index.html">Accueil</a></li>
+				<li><a href="Competences.html">Compétences</a></li>
+				<li><a href="Veille_technologique.html">Veille technologique</a></li>
+				<li><a href="Contact.html">Contact</a></li>
+				<li><a href="projets.html">Projets</a></li>
+			</ul>
+		</div>
+
+		<div class="footer-contact">
+			<h4>Contact</h4>
+			<div class="contact-item">
+				<span class="contact-icon">📧</span>
+				<a href="mailto:seignon.aysorg@gmail.com">muhammadtouray3.002@gmail.com</a>
+			</div>
+			<div class="contact-item">
+				<span class="contact-icon">📱</span>
+				<span>07 53 26 86 33</span>
+			</div>
+			<div class="contact-item">
+				<span class="contact-icon">📍</span>
+				<span>93200 Saint Denis</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-divider"></div>
+
+	<div class="footer-bottom">
+		<p>&copy; 2025 Muhammed Touray. Tous droits réservés.</p>
+	</div>
+</footer>

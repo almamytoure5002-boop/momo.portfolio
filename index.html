@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Portfolio | Muhammed </title>
+	<link rel="stylesheet" href="style.css">
+	<script src="typing.js"></script>
+</head>
+<body class="index">
+	<header class="Acceuil">
+		<div>
+			<a class="nom" href="">Muhammed Touray</a>
+		</div>
+		<nav class="menu">
+			<a href="index.html">Accueil</a>
+    		<a href="Competences.html">Compétences</a>
+    		<a href="Veille_technologique.html">Veille technologique</a>
+    		<a href="Contact.html">Contact</a>
+    		<a href="projets.html"><button class="bouton">Projet</button></a>
+		</nav>
+	</header>
+
+	<section class="intro">
+	  <div class="overlay">
+	    <h1 class="typing" id="typing"></h1>
+	  </div>
+	</section>
+
+	<div class="presentation">
+		<div class="ellipse-container">
+			<img src="images/cyber.jpeg" alt="A propos">
+		</div>
+
+		<div class="about">
+			<h3> Qui suis-je ?</h3>	
+			<p>Actuellement étudiant en 2e année de BTS SIO option SISR à l’école IRIS, je vous invite à découvrir sur ce portfolio un aperçu de mon parcours académique et professionnel. Vous y trouverez mon CV ainsi qu’une présentation des différents projets que j’ai réalisés au cours de mes formations.</p>
+
+			<div >
+				<ul class="link">
+					<li class="profil_l" ><a href="www.linkedin.com/in/muhammed-touray-938242348">Mon Linkedin</a></li>
+					<li><a href="">Mon CV</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+
+
+	<section>
+
+		<div class="bts">
+			<div class="about2">
+				<h3>Qu'est ce que le BTS SIO ?</h3>	
+				<p>Le BTS SIO (Services Informatiques aux Organisations) est un diplôme de niveau Bac+2 qui prépare aux métiers de l’informatique. Il forme des spécialistes capables de développer des applications, d’administrer des systèmes et de maintenir des réseaux, afin de répondre aux besoins techniques des entreprises et organisations.</p>
+			</div>
+
+			<div class="binaire">
+				<img src="images/linux.jpg" alt="A propos">
+			</div>
+
+		</div>
+
+		<div class="option-separe">
+			<h4 class="options-title">Le BTS SIO propose deux options :</h4>
+
+			<div class="options-container">
+			        <!-- Option SISR -->
+			        <div class="option-card">
+			            <h3 class="option-name">Option SISR</h3>
+			            <p class="option-description">
+			                L'option Solutions d'infrastructure, systèmes et réseaux (SISR) du BTS SIO forme des spécialistes des réseaux et des équipements informatiques. Elle prépare à l'installation, à la maintenance et à la sécurisation des infrastructures. Avec ce diplôme, vous serez en mesure d'administrer et gérer le réseau d'une organisation tout en assurant sa fiabilité et sa protection.
+			            </p>
+
+			            <h6 class="metiers-title">Les métiers accessibles :</h6>
+			            <ul class="metiers-list">
+			                <li class="metier-item">
+			                    <button class="metier-button" onclick="toggleMetier(this)">
+			                        <span>Administrateur systèmes et réseaux</span>
+			                        <span class="arrow">▼</span>
+			                    </button>
+			                    <div class="metier-content">
+			                        <p>L'administrateur systèmes et réseaux est responsable de la gestion, de la maintenance et de la sécurité des infrastructures informatiques. Il configure les serveurs, supervise les réseaux et assure leur bon fonctionnement au quotidien.</p>
+			                    </div>
+			                </li>
+			                <li class="metier-item">
+			                    <button class="metier-button" onclick="toggleMetier(this)">
+			                        <span>Informaticien support et déploiement</span>
+			                        <span class="arrow">▼</span>
+			                    </button>
+			                    <div class="metier-content">
+			                        <p>Ce professionnel assure le support technique aux utilisateurs, installe et déploie les équipements informatiques dans l'entreprise. Il accompagne les collaborateurs dans l'utilisation des outils numériques.</p>
+			                    </div>
+			                </li>
+			                <li class="metier-item">
+			                    <button class="metier-button" onclick="toggleMetier(this)">
+			                        <span>Pilote d'exploitation</span>
+			                        <span class="arrow">▼</span>
+			                    </button>
+			                    <div class="metier-content">
+			                        <p>Le pilote d'exploitation supervise les systèmes informatiques en production, surveille les incidents et coordonne les interventions techniques pour garantir la continuité de service.</p>
+			                    </div>
+			                </li>
+			                <li class="metier-item">
+			                    <button class="metier-button" onclick="toggleMetier(this)">
+			                        <span>Support systèmes et réseaux</span>
+			                        <span class="arrow">▼</span>
+			                    </button>
+			                    <div class="metier-content">
+			                        <p>Le technicien support systèmes et réseaux assiste les utilisateurs en cas de problèmes techniques, diagnostique les pannes et met en place des solutions adaptées pour résoudre les dysfonctionnements.</p>
+			                    </div>
+			                </li>
+			            </ul>
+			        </div>
+
+			        <!-- Option SLAM -->
+			        <div class="option-card">
+			            <h3 class="option-name">Option SLAM</h3>
+			            <p class="option-description">
+			                L'option Solutions logicielles et applications métiers (SLAM) du BTS SIO forme des spécialistes du développement logiciel. Elle prépare à la rédaction de cahiers des charges, à l'analyse des besoins et des spécifications, ainsi qu'à la conception, au développement et à l'intégration d'applications au sein des organisations.
+			            </p>
+
+			            <h6 class="metiers-title">Les métiers accessibles :</h6>
+			            <ul class="metiers-list">
+			                <li class="metier-item">
+			                    <button class="metier-button" onclick="toggleMetier(this)">
+			                        <span>Développeur d'applications informatiques</span>
+			                        <span class="arrow">▼</span>
+			                    </button>
+			                    <div class="metier-content">
+			                        <p>Le développeur d'applications conçoit, code et teste des logiciels adaptés aux besoins des utilisateurs. Il maîtrise plusieurs langages de programmation et travaille en équipe pour livrer des solutions fonctionnelles.</p>
+			                    </div>
+			                </li>
+			                <li class="metier-item">
+			                    <button class="metier-button" onclick="toggleMetier(this)">
+			                        <span>Développeur informatique</span>
+			                        <span class="arrow">▼</span>
+			                    </button>
+			                    <div class="metier-content">
+			                        <p>Professionnel polyvalent du développement, il intervient sur différents projets logiciels, du web au mobile. Il analyse les besoins, développe les fonctionnalités et assure la maintenance des applications.</p>
+			                    </div>
+			                </li>
+			                <li class="metier-item">
+			                    <button class="metier-button" onclick="toggleMetier(this)">
+			                        <span>Analyste d'applications ou d'études</span>
+			                        <span class="arrow">▼</span>
+			                    </button>
+			                    <div class="metier-content">
+			                        <p>L'analyste étudie les besoins métiers, rédige les spécifications techniques et propose des solutions logicielles adaptées. Il fait le lien entre les équipes métier et les développeurs.</p>
+			                    </div>
+			                </li>
+			            </ul>
+			        </div>
+			    </div>
+		</div>
+
+	</section>
+
+	    <section class="experiences-section">
+        <div class="experiences-container">
+            <h2 class="experiences-title">Expériences Professionnelles</h2>
+
+            <div class="timeline">
+                <!-- Expérience 1 -->
+                <div class="experience-card">
+                    <span class="experience-period">2024 - 2025</span>
+                    <h3 class="experience-title">Stage en Interne</h3>
+                    <p class="experience-company">IRIS</p>
+                    <p class="experience-description">
+                       - intégrer 3 sites interconnectés dans une infrastructure cohérente, centralisée et sécurisée 
+                       - Sécurité systèmes Windows et Linux  Gestion des identités 
+                       - Supervision multi-sites 
+                    </p>
+                    <span class="experience-tag">Développement Web</span>
+                </div>
+
+                <!-- Expérience 2 -->
+                <div class="experience-card">
+                    <span class="experience-period">2025 - 2026</span>
+                    <h3 class="experience-title">Stage Technique</h3>
+                    <p class="experience-company">Fnac des ternes </p>
+                    <p class="experience-description">
+                        Branchement et organisation du câblage Ethernet (serveur, routeur, switch, postes)
+						Mise à jour et remise à niveau de postes utilisateurs
+						Vérification de la connectivité réseau et résolution de problèmes simples
+						Organisation et rangement propre du baie / câblage pour une meilleure maintenance
+                    </p>
+                    <span class="experience-tag">Connectivité des servers</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section class="parcours-section">
+        <div class="parcours-container">
+            <h3 class="parcours-title">Parcours Scolaire</h3>
+
+            <div class="timeline">
+                <!-- BTS SIO SISR - DROITE -->
+                <div class="parcours-item right">
+                    <div class="parcours-content">
+                        <span class="parcours-period">2024 - 2026</span>
+                        <h4 class="parcours-diploma">BTS SIO SISR</h4>
+                        <a href="#" class="parcours-school">École IRIS</a>
+                        <p class="parcours-description">
+                           Formation spécialisée en administration des systèmes et réseaux informatiques avec l'option Solutions d’Infrastructure, Systèmes et Réseaux (SISR). Apprentissage de la configuration et la gestion des serveurs, réseaux, protocoles, sécurité et virtualisation, ainsi que la mise en place d’infrastructures et services informatiques.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Licence Informatique - GAUCHE -->
+                <div class="parcours-item left">
+                    <div class="parcours-content">
+                        <span class="parcours-period">2020 - 2023</span>
+                        <h4 class="parcours-diploma">Licence Informatique</h4>
+                        <a href="#" class="parcours-school">ESGIS</a>
+                        <p class="parcours-description">
+                            Formation universitaire en informatique couvrant les fondamentaux de la programmation, des systèmes d'information, des bases de données et des réseaux. Acquisition de connaissances théoriques et pratiques en développement logiciel et architecture des systèmes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Baccalauréat - DROITE -->
+                <div class="parcours-item right">
+                    <div class="parcours-content">
+                        <span class="parcours-period">2023-2024</span>
+                        <h4 class="parcours-diploma">Baccalauréat Général</h4>
+                        <a href="#" class="parcours-school">Lycée</a>
+                        <p class="parcours-description">
+                            Baccalauréat général avec spécialité Sciences de la Vie et de la Terre (SVT). Formation scientifique solide ayant développé des compétences analytiques et méthodologiques, fondements essentiels pour une poursuite d'études en informatique.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- À propos -->
+            <div class="footer-about">
+                <h3>À propos</h3>
+                <p>
+                    Étudiant en 2ᵉ année de BTS SIO option SISR, passionné par l’administration des systèmes et réseaux, la sécurité informatique et la virtualisation. 
+                    Découvrez mes projets, mon parcours et mes compétences à travers ce portfolio.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/muhammed-touray-938242348" class="social-link" target="_blank">in</a>
+                    <a href="#" class="social-link">📧</a>
+                    <a href="#" class="social-link">💻</a>
+                </div>
+            </div>
+
+            <!-- Navigation rapide -->
+            <div class="footer-links">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="#presentation">Présentation</a></li>
+                    <li><a href="#skills">Compétences</a></li>
+                    <li><a href="#experiences">Expériences</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <a href="mailto:seignon.aysorg@gmail.com">muhammadtouray3.002@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📱</span>
+                    <span>07 53 26 86 33</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>45680 Dordives</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ligne de séparation -->
+        <div class="footer-divider"></div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Muhammed Touray. Tous droits réservés. | Conçu avec ❤️</p>
+        </div>
+    </footer>
+
+</body>
+</html>
