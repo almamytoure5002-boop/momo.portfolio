@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossier E6 - Réalisations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+
+
+        /* ═══════════════════════════════════════════
+           NAVBAR
+        ═══════════════════════════════════════════ */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(13,15,26,0.85);
+            border-bottom: 1px solid var(--border);
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 68px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.35);
+        }
+
+        .navbar-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--text-hi);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.01em;
+        }
+
+        .navbar-logo .logo-dot {
+            width: 8px; height: 8px;
+            background: var(--accent-grd);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(109,40,217,0.8);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%,100% { transform: scale(1); opacity:1; }
+            50%      { transform: scale(1.4); opacity:0.7; }
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            color: var(--text-mid);
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .navbar-links a:hover {
+            color: var(--text-hi);
+            background: rgba(109,40,217,0.15);
+        }
+
+        .navbar-links a.active {
+            color: var(--text-hi);
+            background: rgba(109,40,217,0.2);
+            border: 1px solid var(--border-hi);
+        }
+
+        .navbar-links a i {
+            font-size: 0.8rem;
+            opacity: 0.75;
+        }
+
+        /* Dropdown pour E5 / E6 */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > a {
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(17,24,39,0.98);
+            border: 1px solid var(--border-hi);
+            border-radius: var(--radius-sm);
+            padding: 8px;
+            min-width: 180px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            backdrop-filter: blur(20px);
+            z-index: 200;
+            animation: dropIn 0.2s ease;
+        }
+
+        @keyframes dropIn {
+            from { opacity:0; transform: translateX(-50%) translateY(-6px); }
+            to   { opacity:1; transform: translateX(-50%) translateY(0); }
+        }
+
+        .nav-dropdown:hover .dropdown-menu { display: block; }
+
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            color: var(--text-mid);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--text-hi);
+            background: rgba(109,40,217,0.2);
+        }
+
+        .dropdown-menu a i {
+            width: 18px;
+            text-align: center;
+            color: #7c3aed;
+        }
+
+        .nav-cta {
+            background: var(--accent-grd) !important;
+            color: white !important;
+            font-weight: 600 !important;
+            border-radius: 8px !important;
+            padding: 8px 18px !important;
+            transition: opacity 0.2s, transform 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.9 !important;
+            transform: translateY(-1px) !important;
+            background: var(--accent-grd) !important;
+        }
+
+        /* Hamburger mobile */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px; height: 2px;
+            background: var(--text-hi);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        
+        /* ═══════════════════════════════════════════
+            ROOT & RESET (Identique E5)
+        ═══════════════════════════════════════════ */
+        :root {
+            --bg-deep:    #0d0f1a;
+            --bg-mid:     #111827;
+            --bg-card:    rgba(255,255,255,0.04);
+            --accent1:    #6d28d9;
+            --accent2:    #2563eb;
+            --accent-grd: linear-gradient(135deg, #6d28d9, #2563eb);
+            --text-hi:    #f1f5f9;
+            --text-mid:   #94a3b8;
+            --text-lo:    #475569;
+            --border:     rgba(109,40,217,0.22);
+            --border-hi:  rgba(109,40,217,0.6);
+            --shadow-glow:0 0 40px rgba(109,40,217,0.18);
+            --radius:     16px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { 
+            font-family: 'DM Sans', sans-serif; 
+            background: var(--bg-deep); 
+            color: var(--text-hi); 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Fond animé E5 */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 800px 500px at 15% 20%, rgba(109,40,217,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 600px 400px at 85% 70%, rgba(37,99,235,0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ═══════════════════════════════════════════
+            HERO (Style E5)
+        ═══════════════════════════════════════════ */
+        .hero {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 80px 24px 60px;
+        }
+        .hero h1 { 
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem); 
+            font-weight: 800; 
+            letter-spacing: -0.03em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .hero p { 
+            color: var(--text-mid); 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            letter-spacing: 0.15em; 
+            text-transform: uppercase;
+            background: var(--accent-grd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ═══════════════════════════════════════════
+            LAYOUT & CONTAINERS
+        ═══════════════════════════════════════════ */
+        .container { 
+            position: relative;
+            z-index: 1;
+            max-width: 1100px; 
+            margin: 0 auto 80px; 
+            padding: 0 24px; 
+        }
+
+        .section-header { 
+            text-align: left; 
+            margin-bottom: 40px; 
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+        .section-title { 
+            font-family: 'Syne', sans-serif;
+            font-size: 1.8rem; 
+            font-weight: 800; 
+            display: flex; 
+            align-items: center; 
+            gap: 15px;
+            color: var(--text-hi);
+        }
+        .section-title i { 
+            background: var(--accent-grd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .divider { 
+            border: none; 
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-hi), transparent);
+            margin: 40px 0; 
+        }
+
+        /* ═══════════════════════════════════════════
+            CONTEXT BOX (Style E5 Synthèse)
+        ═══════════════════════════════════════════ */
+        .context-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: var(--radius);
+            margin-bottom: 60px;
+            backdrop-filter: blur(10px);
+        }
+        .context-box h2 { 
+            font-family: 'Syne', sans-serif;
+            font-weight: 800; 
+            margin-bottom: 20px; 
+            color: var(--text-hi);
+        }
+        .context-box p { 
+            color: var(--text-mid); 
+            margin-bottom: 25px; 
+        }
+
+        /* ═══════════════════════════════════════════
+            MISSIONS RP (Style E5 Mission Cards)
+        ═══════════════════════════════════════════ */
+        .rp-section {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        /* Côté Gauche (Logo & Service) */
+        .rp-aside {
+            flex: 0 0 240px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 30px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .rp-aside:hover { 
+            border-color: var(--border-hi); 
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-5px);
+        }
+        .rp-aside img { 
+            width: 70px; 
+            margin: 0 auto 20px; 
+            filter: drop-shadow(0 0 10px rgba(109,40,217,0.3));
+        }
+        .rp-aside .service-title { 
+            font-size: 0.7rem; 
+            font-weight: 700; 
+            color: var(--text-lo); 
+            text-transform: uppercase; 
+            letter-spacing: 0.1em; 
+        }
+
+        /* Côté Droit (Contenu) */
+        .rp-content { 
+            flex: 1; 
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        .rp-content::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: var(--accent-grd);
+        }
+        .rp-content h2 { 
+            font-family: 'Syne', sans-serif;
+            font-size: 1.4rem; 
+            font-weight: 700; 
+            margin-bottom: 15px; 
+            color: var(--text-hi);
+        }
+        
+        /* Tags (Style E5) */
+        .tag-group { display: flex; gap: 8px; margin-bottom: 25px; flex-wrap: wrap; }
+        .tag { 
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: rgba(109,40,217,0.12);
+            border: 1px solid rgba(109,40,217,0.25);
+            color: #a78bfa;
+        }
+
+        .rp-description { 
+            font-size: 0.9rem;
+            color: var(--text-mid); 
+            margin-bottom: 30px; 
+        }
+        .rp-description strong { color: var(--text-hi); }
+
+        /* Boutons (Style E5) */
+        .btn-group { display: flex; gap: 12px; }
+        .btn {
+            display: inline-flex; 
+            align-items: center; 
+            gap: 10px;
+            padding: 10px 20px; 
+            border-radius: 8px; 
+            font-weight: 600;
+            text-decoration: none; 
+            font-size: 0.8rem; 
+            transition: all 0.25s ease;
+        }
+        .btn-primary { 
+            background: var(--accent-grd); 
+            color: white; 
+            border: none; 
+            box-shadow: 0 4px 15px rgba(109,40,217,0.3);
+        }
+        .btn-outline { 
+            background: rgba(109,40,217,0.1); 
+            color: #a78bfa; 
+            border: 1px solid rgba(109,40,217,0.3); 
+        }
+        .btn:hover { 
+            transform: translateY(-2px); 
+            filter: brightness(1.2);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .rp-section { flex-direction: column; }
+            .rp-aside { flex: none; width: 100%; padding: 30px; }
+            .container { padding: 0 15px; }
+        }
+    </style>
+</head>
+<body>
+
+   <nav class="navbar">
+    <a href="index.html" class="navbar-logo">
+        <span class="logo-dot"></span>
+        Portfolio BTS SIO
+    </a>
+
+    <ul class="navbar-links">
+        <li>
+            <a href="index.html">
+                <i class="fas fa-house"></i> Accueil
+            </a>
+        </li>
+
+        <!-- Épreuve E5 dropdown -->
+        <li class="nav-dropdown">
+            <a href="Missions_v2.html">
+                <i class="fas fa-layer-group"></i> Épreuve E5
+                <i class="fas fa-chevron-down" style="font-size:0.65rem;margin-left:2px"></i>
+            </a>
+            <div class="dropdown-menu">
+                <a href="Missions.html" class="active">
+                    <i class="fas fa-bullseye"></i> Les 14 Missions
+                </a>
+                <a href="">
+                    <i class="fas fa-table"></i> Tableau de synthèse
+                </a>
+            </div>
+        </li>
+
+        <!-- Épreuve E6 dropdown -->
+        <li class="nav-dropdown">
+            <a href="Epreuve E6.html">
+                <i class="fas fa-folder-open"></i> Épreuve E6
+                <i class="fas fa-chevron-down" style="font-size:0.65rem;margin-left:2px"></i>
+            </a>
+            <div class="dropdown-menu">
+                <a href="projets.html">
+                    <i class="fas fa-rocket"></i> Projets
+                </a>
+                <a href="Veille_technologique.html">
+                    <i class="fas fa-rss"></i> Veille techno
+                </a>
+            </div>
+        </li>
+
+        <li>
+            <a href="Competences.html">
+                <i class="fas fa-star"></i> Compétences
+            </a>
+        </li>
+
+        <li>
+            <a href="Contact.html" class="nav-cta">
+                <i class="fas fa-paper-plane"></i> Contact
+            </a>
+        </li>
+    </ul>
+
+    <div class="nav-toggle" onclick="this.classList.toggle('open')">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+    <header class="hero">
+        <h1>DOSSIER E6</h1>
+        <p>Parcours de professionnalisation et réalisations</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="section-header">
+            <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> RÉALISATIONS PROFESSIONNELLES</h2>
+            <hr class="divider">
+        </div>
+
+        <div class="context-box">
+            <h2>Contexte Global de la Situation Professionnelle</h2>
+            <p>
+                La réalisation de ces projets s'inscrit dans le cadre du contexte <strong>Stadium Company</strong>, une organisation complexe spécialisée dans l'administration et la gestion de grands événements sportifs. L'enjeu majeur est de concevoir et de déployer des solutions systèmes et réseaux robustes.
+            </p>
+            <div class="tag-group">
+                <span class="tag"><i class="fa-solid fa-network-wired"></i> Architecture Réseau</span>
+                <span class="tag"><i class="fa-solid fa-shield-halved"></i> Cybersécurité</span>
+                <span class="tag"><i class="fa-solid fa-server"></i> Services d'Annuaire AD</span>
+                <span class="tag"><i class="fa-solid fa-file-invoice"></i> Gestion de Parc ITSM</span>
+            </div>
+        </div>
+
+        <div class="rp-section">
+            <div class="rp-aside">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Windows Logo">
+                <p style="color:#7c3aed; font-weight:800; text-transform: uppercase; font-size: 0.75rem; margin-bottom:5px;">Situation N°1</p>
+                <p class="service-title">Administration Système</p>
+            </div>
+            <div class="rp-content">
+                <h2>RP1 : Administration Active Directory et Automatisation des Accès</h2>
+                <div class="tag-group">
+                    <span class="tag">Windows Server 2022</span>
+                    <span class="tag">GPO & Sécurité</span>
+                    <span class="tag">NTFS</span>
+                </div>
+                <p class="rp-description">
+                    Cette mission visait à mettre un terme à la dispersion des fichiers audio (jingles, playlists) stockés localement sur les postes de l'équipe Animation. J'ai pris en charge le déploiement complet d'un <strong>Active Directory (AD DS)</strong> sous Windows Server 2022. Cela a impliqué la création d'une Unité Organisationnelle dédiée, la gestion rigoureuse des habilitations via des groupes de sécurité et la configuration de droits NTFS restrictifs. Pour optimiser l'expérience utilisateur, j'ai élaboré une <strong>GPO de mappage</strong> automatisant la connexion à un lecteur réseau partagé.
+                </p>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-primary"><i class="fa-solid fa-file-pdf"></i> Situation Pro</a>
+                    <a href="#" class="btn btn-outline"><i class="fa-solid fa-book"></i> Documentation</a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="rp-section">
+            <div class="rp-aside">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Logo-GLPI-2021.png/640px-Logo-GLPI-2021.png" alt="Logo Officiel GLPI">
+                <p style="color:#7c3aed; font-weight:800; text-transform: uppercase; font-size: 0.75rem; margin-bottom:5px;">Situation N°2</p>
+                <p class="service-title">Gestion de Parc (ITSM)</p>
+            </div>
+            <div class="rp-content">
+                <h2>RP2 : Optimisation du support technique via GLPI et liaison LDAP</h2>
+                <div class="tag-group">
+                    <span class="tag">GLPI v10</span>
+                    <span class="tag">Debian 12 Linux</span>
+                    <span class="tag">Liaison LDAP/AD</span>
+                </div>
+                <p class="rp-description">
+                    Avant cette intervention, les incidents chez Stadium Company manquaient de traçabilité. J'ai donc déployé un serveur LAMP sous Debian 12 pour héberger la solution de helpdesk <strong>GLPI</strong>. Le cœur technique de cette réalisation fut l'intégration de l'<strong>authentification centralisée LDAP</strong>. En connectant GLPI à l'Active Directory, j'ai permis aux utilisateurs de s'authentifier avec leurs identifiants de session habituels tout en automatisant l'importation des comptes.
+                </p>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-primary"><i class="fa-solid fa-file-pdf"></i> Situation Pro</a>
+                    <a href="#" class="btn btn-outline"><i class="fa-solid fa-book"></i> Documentation</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -4,10 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Compétences | Muhammed</title>
+    <title>Compétences | Muhammed T</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <style>
+
+        /* ═══════════════════════════════════════════
+           NAVBAR
+        ═══════════════════════════════════════════ */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(13,15,26,0.85);
+            border-bottom: 1px solid var(--border);
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 68px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.35);
+        }
+
+        .navbar-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--text-hi);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.01em;
+        }
+
+        .navbar-logo .logo-dot {
+            width: 8px; height: 8px;
+            background: var(--accent-grd);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(109,40,217,0.8);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%,100% { transform: scale(1); opacity:1; }
+            50%      { transform: scale(1.4); opacity:0.7; }
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            color: var(--text-mid);
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .navbar-links a:hover {
+            color: var(--text-hi);
+            background: rgba(109,40,217,0.15);
+        }
+
+        .navbar-links a.active {
+            color: var(--text-hi);
+            background: rgba(109,40,217,0.2);
+            border: 1px solid var(--border-hi);
+        }
+
+        .navbar-links a i {
+            font-size: 0.8rem;
+            opacity: 0.75;
+        }
+
+        /* Dropdown pour E5 / E6 */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > a {
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(17,24,39,0.98);
+            border: 1px solid var(--border-hi);
+            border-radius: var(--radius-sm);
+            padding: 8px;
+            min-width: 180px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            backdrop-filter: blur(20px);
+            z-index: 200;
+            animation: dropIn 0.2s ease;
+        }
+
+        @keyframes dropIn {
+            from { opacity:0; transform: translateX(-50%) translateY(-6px); }
+            to   { opacity:1; transform: translateX(-50%) translateY(0); }
+        }
+
+        .nav-dropdown:hover .dropdown-menu { display: block; }
+
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            color: var(--text-mid);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--text-hi);
+            background: rgba(109,40,217,0.2);
+        }
+
+        .dropdown-menu a i {
+            width: 18px;
+            text-align: center;
+            color: #7c3aed;
+        }
+
+        .nav-cta {
+            background: var(--accent-grd) !important;
+            color: white !important;
+            font-weight: 600 !important;
+            border-radius: 8px !important;
+            padding: 8px 18px !important;
+            transition: opacity 0.2s, transform 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.9 !important;
+            transform: translateY(-1px) !important;
+            background: var(--accent-grd) !important;
+        }
+
+        /* Hamburger mobile */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px; height: 2px;
+            background: var(--text-hi);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        /*___________________*/
+
+
         :root {
             --primary-gradient: linear-gradient(135deg, blueviolet, #1f6feb);
             --dark-bg: #1a1a2e;
@@ -27,7 +206,7 @@
         }
 
         /* ════════════════════════════════════════
-           SECTION OUTILS & COMPÉTENCES
+           SECTION OUTILS & COMPÉTENCES TECHNIQUES
         ════════════════════════════════════════ */
         .tools-section {
             padding: 80px 20px;
@@ -51,7 +230,7 @@
 
         .tools-main-title span {
             color: #1f6feb;
-            text-shadow: 0 0 20px rgba(31, 111, 235, 0.5);
+            text-shadow: 0 0 20px rgba(31,111,235,0.5);
         }
 
         .tools-main-title::after {
@@ -64,7 +243,7 @@
             border-radius: 2px;
         }
 
-        /* ── Catégorie ── */
+        /* Catégorie */
         .tools-category { margin-bottom: 60px; }
 
         .tools-category-title {
@@ -84,20 +263,20 @@
             content: '';
             flex: 1;
             height: 1px;
-            background: linear-gradient(90deg, rgba(138, 43, 226, 0.4), transparent);
+            background: linear-gradient(90deg, rgba(138,43,226,0.4), transparent);
         }
 
-        /* ── Grille ── */
+        /* Grille */
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             gap: 18px;
         }
 
-        /* ── Carte ── */
+        /* Carte */
         .tool-card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(138, 43, 226, 0.2);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(138,43,226,0.2);
             border-radius: 14px;
             padding: 22px 10px 16px;
             display: flex;
@@ -110,35 +289,27 @@
 
         .tool-card:hover {
             transform: translateY(-7px);
-            border-color: rgba(138, 43, 226, 0.7);
-            box-shadow: 0 12px 35px rgba(138, 43, 226, 0.25);
-            background: rgba(138, 43, 226, 0.09);
+            border-color: rgba(138,43,226,0.7);
+            box-shadow: 0 12px 35px rgba(138,43,226,0.25);
+            background: rgba(138,43,226,0.09);
         }
 
         .tool-logo {
             width: 52px; height: 52px;
             object-fit: contain;
-            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
             transition: filter 0.3s, transform 0.3s;
         }
 
         .tool-card:hover .tool-logo {
-            filter: drop-shadow(0 4px 14px rgba(138, 43, 226, 0.5));
+            filter: drop-shadow(0 4px 14px rgba(138,43,226,0.5));
             transform: scale(1.08);
         }
 
-        /* Badge SVG de secours */
-        .tool-badge {
+        .tool-icon-svg {
             width: 52px; height: 52px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            font-weight: 900;
-            color: white;
-            letter-spacing: -0.02em;
-            flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.1rem;
         }
 
         .tool-name {
@@ -179,12 +350,12 @@
         }
 
         .cert-card {
-            background: linear-gradient(145deg, rgba(138, 43, 226, 0.1), rgba(31, 111, 235, 0.1));
+            background: linear-gradient(145deg, rgba(138,43,226,0.1), rgba(31,111,235,0.1));
             backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 30px;
             text-align: center;
-            border: 2px solid rgba(138, 43, 226, 0.3);
+            border: 2px solid rgba(138,43,226,0.3);
             transition: all 0.4s;
             animation: float 4s ease-in-out infinite;
         }
@@ -192,7 +363,7 @@
         .cert-card:hover {
             border-color: blueviolet;
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(138, 43, 226, 0.4);
+            box-shadow: 0 15px 40px rgba(138,43,226,0.4);
             animation: none;
         }
 
@@ -210,7 +381,7 @@
             object-fit: contain;
             margin-bottom: 20px;
             border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255,255,255,0.1);
             padding: 20px;
         }
 
@@ -235,7 +406,7 @@
 
         .cert-link:hover {
             transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.5);
+            box-shadow: 0 5px 20px rgba(138,43,226,0.5);
         }
 
         /* ════════════════════════════════════════
@@ -264,7 +435,7 @@
         .competences-table {
             width: 100%;
             border-collapse: collapse;
-            background: linear-gradient(145deg, rgba(138, 43, 226, 0.1), rgba(31, 111, 235, 0.1));
+            background: linear-gradient(145deg, rgba(138,43,226,0.1), rgba(31,111,235,0.1));
             backdrop-filter: blur(10px);
             border-radius: 12px;
             overflow: hidden;
@@ -285,13 +456,13 @@
         .competences-table td {
             padding: 18px 20px;
             color: #c9d1d9;
-            border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+            border-bottom: 1px solid rgba(138,43,226,0.2);
         }
 
         .competences-table tbody tr { transition: all 0.3s; }
 
         .competences-table tbody tr:hover {
-            background-color: rgba(138, 43, 226, 0.2);
+            background-color: rgba(138,43,226,0.2);
             transform: scale(1.01);
         }
 
@@ -305,10 +476,10 @@
             font-weight: 600;
         }
 
-        .niveau-expert        { background: linear-gradient(135deg, #10b981, #059669); color: white; }
-        .niveau-avance        { background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; }
-        .niveau-intermediaire { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; }
-        .niveau-debutant      { background: linear-gradient(135deg, #ef4444, #dc2626); color: white; }
+        .niveau-expert        { background: linear-gradient(135deg,#10b981,#059669); color:white; }
+        .niveau-avance        { background: linear-gradient(135deg,#3b82f6,#2563eb); color:white; }
+        .niveau-intermediaire { background: linear-gradient(135deg,#f59e0b,#d97706); color:white; }
+        .niveau-debutant      { background: linear-gradient(135deg,#ef4444,#dc2626); color:white; }
 
         /* ════════════════════════════════════════
            TABLEAU BTS COMPÉTENCES PAR PROJET
@@ -343,7 +514,7 @@
             overflow-x: auto;
             margin-top: 2rem;
             border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
 
         .skills-competences-table {
@@ -364,7 +535,7 @@
             font-weight: 600;
             font-size: 0.95rem;
             color: white;
-            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-right: 1px solid rgba(255,255,255,0.2);
             line-height: 1.4;
         }
 
@@ -374,12 +545,12 @@
         .skills-competences-table td {
             padding: 1.2rem 1rem;
             text-align: center;
-            border: 1px solid rgba(138, 43, 226, 0.2);
+            border: 1px solid rgba(138,43,226,0.2);
             color: var(--text-light);
         }
 
         .skills-competences-table tbody tr { transition: all 0.3s ease; }
-        .skills-competences-table tbody tr:hover { background: rgba(138, 43, 226, 0.1); }
+        .skills-competences-table tbody tr:hover { background: rgba(138,43,226,0.1); }
 
         .skills-project-name {
             text-align: left !important;
@@ -389,7 +560,7 @@
         }
 
         .skills-section-row {
-            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(31, 111, 235, 0.2));
+            background: linear-gradient(135deg, rgba(138,43,226,0.2), rgba(31,111,235,0.2));
             text-align: center !important;
             padding: 1.2rem !important;
             font-weight: 600;
@@ -408,14 +579,14 @@
 
         .skills-cell-filled:hover {
             transform: scale(1.15);
-            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.6);
+            box-shadow: 0 5px 20px rgba(138,43,226,0.6);
         }
 
         .skills-cell-filled i { font-size: 1.5rem; color: white; transition: transform 0.3s ease; }
         .skills-cell-filled:hover i { transform: rotate(360deg); }
 
-        .skills-cell-linkedin { background: linear-gradient(135deg, #0077b5, #00a0dc); }
-        .skills-cell-github   { background: linear-gradient(135deg, #24292e, #4a4a4a); }
+        .skills-cell-linkedin { background: linear-gradient(135deg,#0077b5,#00a0dc); }
+        .skills-cell-github   { background: linear-gradient(135deg,#24292e,#4a4a4a); }
 
         .skills-table-button-wrapper { text-align: center; margin-top: 3rem; }
 
@@ -429,25 +600,27 @@
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
+            box-shadow: 0 5px 20px rgba(138,43,226,0.4);
         }
 
         .skills-table-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(138, 43, 226, 0.6);
+            box-shadow: 0 8px 30px rgba(138,43,226,0.6);
         }
 
-        /* ── Modal ── */
+        /* Modal */
         .skills-modal {
             display: none;
             position: fixed;
             z-index: 10000;
             left: 0; top: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(0,0,0,0.95);
             animation: fadeIn 0.3s ease;
         }
 
-        .skills-modal.active { display: flex; align-items: center; justify-content: center; }
+        .skills-modal.active {
+            display: flex; align-items: center; justify-content: center;
+        }
 
         .skills-modal-content {
             position: relative;
@@ -467,7 +640,7 @@
         .skills-modal-nav {
             position: absolute;
             top: 50%; transform: translateY(-50%);
-            background: rgba(138, 43, 226, 0.8);
+            background: rgba(138,43,226,0.8);
             color: white; border: none;
             padding: 15px 20px; font-size: 1.5rem;
             cursor: pointer; transition: all 0.3s ease; border-radius: 5px;
@@ -480,7 +653,7 @@
         .skills-modal-image {
             max-width: 100%; max-height: 80vh;
             border-radius: 10px;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 10px 50px rgba(0,0,0,0.8);
         }
 
         .skills-modal-counter {
@@ -489,43 +662,90 @@
             color: white; font-size: 1.2rem; font-weight: 600;
         }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeIn { from{opacity:0} to{opacity:1} }
         @keyframes zoomIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to   { opacity: 1; transform: scale(1); }
+            from { opacity:0; transform:scale(0.8) }
+            to   { opacity:1; transform:scale(1)   }
         }
 
         /* ════════════════════════════════════════
            RESPONSIVE
         ════════════════════════════════════════ */
-        @media (max-width: 1024px) { .tools-grid { grid-template-columns: repeat(5, 1fr); } }
+        @media (max-width: 1024px) { .tools-grid { grid-template-columns: repeat(5,1fr); } }
         @media (max-width: 768px) {
-            .tools-grid { grid-template-columns: repeat(4, 1fr); }
-            .tools-main-title, .certifications-title,
-            .tableau-title, .skills-table-title { font-size: 2rem; }
-            .skills-competences-table th,
-            .skills-competences-table td { padding: 0.8rem 0.5rem; font-size: 0.85rem; }
+            .tools-grid { grid-template-columns: repeat(4,1fr); }
+            .tools-main-title, .certifications-title, .tableau-title, .skills-table-title { font-size: 2rem; }
+            .skills-competences-table th, .skills-competences-table td { padding:.8rem .5rem; font-size:.85rem; }
             .skills-competences-table th:first-child { min-width: 120px; }
         }
-        @media (max-width: 520px) { .tools-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 360px) { .tools-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 520px) { .tools-grid { grid-template-columns: repeat(3,1fr); } }
+        @media (max-width: 360px) { .tools-grid { grid-template-columns: repeat(2,1fr); } }
     </style>
 </head>
 <body>
 
-    <header class="Acceuil">
-        <div>
-            <a class="nom" href="">Seignon ZINSOU</a>
-        </div>
-        <nav class="menu">
-            <a href="index.html">Accueil</a>
-            <a href="Competences.html">Compétences</a>
-            <a href="Veille_technologique.html">Veille technologique</a>
-            <a href="Contact.html">Contact</a>
-            <a href="projets.html"><button class="bouton">Projet</button></a>
-        </nav>
-    </header>
+<nav class="navbar">
+    <a href="index.html" class="navbar-logo">
+        <span class="logo-dot"></span>
+        Portfolio BTS SIO
+    </a>
 
+    <ul class="navbar-links">
+        <li>
+            <a href="index.html">
+                <i class="fas fa-house"></i> Accueil
+            </a>
+        </li>
+
+        <!-- Épreuve E5 dropdown -->
+        <li class="nav-dropdown">
+            <a href="Missions_v2.html">
+                <i class="fas fa-layer-group"></i> Épreuve E5
+                <i class="fas fa-chevron-down" style="font-size:0.65rem;margin-left:2px"></i>
+            </a>
+            <div class="dropdown-menu">
+                <a href="Missions.html" class="active">
+                    <i class="fas fa-bullseye"></i> Les 14 Missions
+                </a>
+                <a href="">
+                    <i class="fas fa-table"></i> Tableau de synthèse
+                </a>
+            </div>
+        </li>
+
+        <!-- Épreuve E6 dropdown -->
+        <li class="nav-dropdown">
+            <a href="Epreuve E6.html">
+                <i class="fas fa-folder-open"></i> Épreuve E6
+                <i class="fas fa-chevron-down" style="font-size:0.65rem;margin-left:2px"></i>
+            </a>
+            <div class="dropdown-menu">
+                <a href="projets.html">
+                    <i class="fas fa-rocket"></i> Projets
+                </a>
+                <a href="Veille_technologique.html">
+                    <i class="fas fa-rss"></i> Veille techno
+                </a>
+            </div>
+        </li>
+
+        <li>
+            <a href="Competences.html">
+                <i class="fas fa-star"></i> Compétences
+            </a>
+        </li>
+
+        <li>
+            <a href="Contact.html" class="nav-cta">
+                <i class="fas fa-paper-plane"></i> Contact
+            </a>
+        </li>
+    </ul>
+
+    <div class="nav-toggle" onclick="this.classList.toggle('open')">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
     <!-- ════════════════════════════════════════════════════
          SECTION : MES OUTILS & COMPÉTENCES TECHNIQUES
     ════════════════════════════════════════════════════ -->
@@ -533,7 +753,7 @@
         <div class="tools-inner">
             <h2 class="tools-main-title">Mes <span>Outils</span> &amp; Compétences Techniques</h2>
 
-            <!-- ══ 1. Développement ══ -->
+            <!-- ── Développement ── -->
             <div class="tools-category">
                 <h3 class="tools-category-title">Développement</h3>
                 <div class="tools-grid">
@@ -560,137 +780,91 @@
                     </div>
 
                     <div class="tool-card">
-                        <!-- MySQL logo SVG officiel via svgrepo -->
+                        <img class="tool-logo"
+                             src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+                             alt="JavaScript">
+                        <span class="tool-name">JavaScript</span>
+                    </div>
+
+                    <div class="tool-card">
+                        <img class="tool-logo"
+                             src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg"
+                             alt="Java">
+                        <span class="tool-name">Java</span>
+                    </div>
+
+                    <div class="tool-card">
+                        <img class="tool-logo"
+                             src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
+                             alt="Python">
+                        <span class="tool-name">Python</span>
+                    </div>
+
+                    <div class="tool-card">
                         <img class="tool-logo"
                              src="https://www.svgrepo.com/show/303251/mysql-logo.svg"
-                             alt="MySQL"
-                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="tool-badge" style="display:none;background:linear-gradient(135deg,#00618A,#F29111)">MySQL</div>
+                             alt="MySQL">
                         <span class="tool-name">MySQL</span>
                     </div>
 
                     <div class="tool-card">
-                        <!-- WordPress logo officiel -->
                         <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/WordPress_blue_logo.svg/480px-WordPress_blue_logo.svg.png"
-                             alt="WordPress"
-                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="tool-badge" style="display:none;background:#21759B">WP</div>
-                        <span class="tool-name">WordPress</span>
+                             src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg"
+                             alt="Git">
+                        <span class="tool-name">Git</span>
                     </div>
 
                 </div>
             </div>
 
-            <!-- ══ 2. Réseau et Sécurité ══ -->
+            <!-- ── Outils Logiciels ── -->
             <div class="tools-category">
-                <h3 class="tools-category-title">Réseau et Sécurité</h3>
+                <h3 class="tools-category-title">Outils Logiciels</h3>
                 <div class="tools-grid">
 
                     <div class="tool-card">
-                        <!-- Cisco logo officiel -->
+                        <!-- WAMP : fallback SVG maison si l'image ne charge pas -->
                         <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg"
-                             alt="Cisco"
+                             src="https://www.wampserver.com/logo.png"
+                             alt="WAMP"
                              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="tool-badge" style="display:none;background:#1BA0D7">Cisco</div>
-                        <span class="tool-name">Cisco Réseau</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <!-- pfSense logo -->
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/PfSense_logo.png/640px-PfSense_logo.png"
-                             alt="PFSense"
-                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="tool-badge" style="display:none;background:linear-gradient(135deg,#212121,#dd4b22)">pf</div>
-                        <span class="tool-name">PFSense</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <!-- OpenVAS / Greenbone logo -->
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Openvas.svg/480px-Openvas.svg.png"
-                             alt="OpenVAS"
-                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="tool-badge" style="display:none;background:linear-gradient(135deg,#4c9d2f,#2c5f1a)">GVA</div>
-                        <span class="tool-name">OpenVAS</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <!-- WireGuard logo SVG inline officiel -->
-                        <svg class="tool-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="100" height="100" rx="20" fill="#88171A"/>
-                            <path d="M50 18 L78 34 L78 66 L50 82 L22 66 L22 34 Z" fill="none" stroke="white" stroke-width="5"/>
-                            <circle cx="50" cy="50" r="10" fill="white"/>
+                        <svg class="tool-icon-svg" style="display:none" viewBox="0 0 56 56">
+                            <rect width="56" height="56" rx="12" fill="#2E7D32"/>
+                            <text x="28" y="40" font-size="26" font-weight="900" text-anchor="middle" fill="white" font-family="Arial">W</text>
                         </svg>
-                        <span class="tool-name">WireGuard</span>
+                        <span class="tool-name">WAMP</span>
                     </div>
 
                     <div class="tool-card">
-                        <!-- GNS3 logo -->
                         <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/GNS3_logo.png/480px-GNS3_logo.png"
-                             alt="GNS3"
+                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Burp_Suite_Logo.png/480px-Burp_Suite_Logo.png"
+                             alt="BurpSuite"
                              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="tool-badge" style="display:none;background:linear-gradient(135deg,#e74c3c,#c0392b)">GNS3</div>
-                        <span class="tool-name">GNS3</span>
+                        <svg class="tool-icon-svg" style="display:none" viewBox="0 0 56 56">
+                            <rect width="56" height="56" rx="12" fill="#FF6633"/>
+                            <text x="28" y="40" font-size="26" font-weight="900" text-anchor="middle" fill="white" font-family="Arial">B</text>
+                        </svg>
+                        <span class="tool-name">BurpSuite</span>
                     </div>
 
                     <div class="tool-card">
-                        <!-- PuTTY logo -->
                         <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/PuTTY_icon_128px.png/480px-PuTTY_icon_128px.png"
-                             alt="PuTTY"
+                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Sublime_text_logo.svg/480px-Sublime_text_logo.svg.png"
+                             alt="Sublime Text"
                              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="tool-badge" style="display:none;background:linear-gradient(135deg,#2980b9,#1a5276)">PTY</div>
-                        <span class="tool-name">PuTTY</span>
+                        <svg class="tool-icon-svg" style="display:none" viewBox="0 0 56 56">
+                            <rect width="56" height="56" rx="12" fill="#FF9800"/>
+                            <text x="28" y="40" font-size="26" font-weight="900" text-anchor="middle" fill="white" font-family="Arial">S</text>
+                        </svg>
+                        <span class="tool-name">Sublime Text</span>
                     </div>
 
                 </div>
             </div>
 
-            <!-- ══ 3. Supervision & Monitoring ══ -->
+            <!-- ── Systèmes d'Exploitation ── -->
             <div class="tools-category">
-                <h3 class="tools-category-title">Supervision &amp; Monitoring</h3>
-                <div class="tools-grid">
-
-                    <div class="tool-card">
-                        <!-- Zabbix logo officiel -->
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Zabbix_logo.svg/480px-Zabbix_logo.svg.png"
-                             alt="Zabbix"
-                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="tool-badge" style="display:none;background:linear-gradient(135deg,#d40000,#8b0000)">ZBX</div>
-                        <span class="tool-name">Zabbix</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <!-- Nagios logo officiel -->
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Nagios-logo.svg/480px-Nagios-logo.svg.png"
-                             alt="Nagios"
-                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="tool-badge" style="display:none;background:linear-gradient(135deg,#231f20,#333)">NAG</div>
-                        <span class="tool-name">Nagios</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <!-- GLPI logo officiel -->
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Glpi-logo.svg/480px-Glpi-logo.svg.png"
-                             alt="GLPI"
-                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="tool-badge" style="display:none;background:linear-gradient(135deg,#0f75bc,#0a5a8f)">GLPI</div>
-                        <span class="tool-name">GLPI</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ══ 4. Systèmes d'Exploitation & Virtualisation ══ -->
-            <div class="tools-category">
-                <h3 class="tools-category-title">Systèmes d'Exploitation &amp; Virtualisation</h3>
+                <h3 class="tools-category-title">Systèmes d'Exploitation</h3>
                 <div class="tools-grid">
 
                     <div class="tool-card">
@@ -708,51 +882,10 @@
                     </div>
 
                     <div class="tool-card">
-                        <!-- Windows logo officiel -->
                         <img class="tool-logo"
                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Windows_logo_-_2012.svg/480px-Windows_logo_-_2012.svg.png"
                              alt="Windows">
                         <span class="tool-name">Windows</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <!-- Windows Server : même logo Windows mais label différent -->
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Windows_logo_-_2012.svg/480px-Windows_logo_-_2012.svg.png"
-                             alt="Windows Server">
-                        <span class="tool-name">Windows Server</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <!-- VMware logo officiel -->
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Vmware.svg/480px-Vmware.svg.png"
-                             alt="VMware"
-                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="tool-badge" style="display:none;background:linear-gradient(135deg,#607078,#3d4f59)">VM</div>
-                        <span class="tool-name">VMware</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ══ 5. Messagerie & Collaboration ══ -->
-            <div class="tools-category">
-                <h3 class="tools-category-title">Messagerie &amp; Collaboration</h3>
-                <div class="tools-grid">
-
-                    <div class="tool-card">
-                        <!-- Zimbra logo officiel -->
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Zimbra_Logo_2.svg/480px-Zimbra_Logo_2.svg.png"
-                             alt="Zimbra"
-                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="tool-badge" style="display:none;background:linear-gradient(135deg,#2b73d2,#1a5aad)">
-                            <svg viewBox="0 0 40 30" width="40" height="30" xmlns="http://www.w3.org/2000/svg">
-                                <text x="2" y="24" font-size="22" font-weight="900" fill="white" font-family="Arial">Z</text>
-                            </svg>
-                        </div>
-                        <span class="tool-name">Zimbra</span>
                     </div>
 
                 </div>
@@ -862,9 +995,9 @@
     <!-- ════════════════════════════════════════════════════
          TABLEAU BTS — COMPÉTENCES PAR PROJET
     ════════════════════════════════════════════════════ -->
-    <section class="skills-table-section">
+    <section class="skills-table-section" id="tb_synthèse">
         <div class="skills-table-container">
-            <h2 class="skills-table-title">Tableau de Compétences</h2>
+            <h2 class="skills-table-title">Tableau de synthèse de Compétences</h2>
             <div class="skills-table-wrapper">
                 <table class="skills-competences-table">
                     <thead>

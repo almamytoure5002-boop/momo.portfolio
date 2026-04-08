@@ -6,6 +6,179 @@
 	<title>Veille Technologique | Muhammed T</title>
 	<link rel="stylesheet" href="style.css">
 	<style>
+
+		/* ═══════════════════════════════════════════
+           NAVBAR
+        ═══════════════════════════════════════════ */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(13,15,26,0.85);
+            border-bottom: 1px solid var(--border);
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 68px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.35);
+        }
+
+        .navbar-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--text-hi);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.01em;
+        }
+
+        .navbar-logo .logo-dot {
+            width: 8px; height: 8px;
+            background: var(--accent-grd);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(109,40,217,0.8);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%,100% { transform: scale(1); opacity:1; }
+            50%      { transform: scale(1.4); opacity:0.7; }
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            color: var(--text-mid);
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .navbar-links a:hover {
+            color: var(--text-hi);
+            background: rgba(109,40,217,0.15);
+        }
+
+        .navbar-links a.active {
+            color: var(--text-hi);
+            background: rgba(109,40,217,0.2);
+            border: 1px solid var(--border-hi);
+        }
+
+        .navbar-links a i {
+            font-size: 0.8rem;
+            opacity: 0.75;
+        }
+
+        /* Dropdown pour E5 / E6 */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > a {
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(17,24,39,0.98);
+            border: 1px solid var(--border-hi);
+            border-radius: var(--radius-sm);
+            padding: 8px;
+            min-width: 180px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            backdrop-filter: blur(20px);
+            z-index: 200;
+            animation: dropIn 0.2s ease;
+        }
+
+        @keyframes dropIn {
+            from { opacity:0; transform: translateX(-50%) translateY(-6px); }
+            to   { opacity:1; transform: translateX(-50%) translateY(0); }
+        }
+
+        .nav-dropdown:hover .dropdown-menu { display: block; }
+
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            color: var(--text-mid);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--text-hi);
+            background: rgba(109,40,217,0.2);
+        }
+
+        .dropdown-menu a i {
+            width: 18px;
+            text-align: center;
+            color: #7c3aed;
+        }
+
+        .nav-cta {
+            background: var(--accent-grd) !important;
+            color: white !important;
+            font-weight: 600 !important;
+            border-radius: 8px !important;
+            padding: 8px 18px !important;
+            transition: opacity 0.2s, transform 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.9 !important;
+            transform: translateY(-1px) !important;
+            background: var(--accent-grd) !important;
+        }
+
+        /* Hamburger mobile */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px; height: 2px;
+            background: var(--text-hi);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
 		/* Styles supplémentaires pour la page veille */
 		.content-section {
 			margin-bottom: 35px;
@@ -222,18 +395,72 @@
 	</style>
 </head>
 <body>
-    <header class="Acceuil">
-        <div>
-            <a class="nom" href="">Muhammed Touray</a>
-        </div>
-        <nav class="menu">
-            <a href="index.html">Accueil</a>
-            <a href="Competences.html">Compétences</a>
-            <a href="Veille_technologique.html">Veille technologique</a>
-            <a href="Contact.html">Contact</a>
-            <a href="projets.html"><button class="bouton">Projet</button></a>
-        </nav>
-    </header> 
+    
+    <!-- ═══════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════ -->
+<nav class="navbar">
+    <a href="index.html" class="navbar-logo">
+        <span class="logo-dot"></span>
+        Portfolio BTS SIO
+    </a>
+
+    <ul class="navbar-links">
+        <li>
+            <a href="index.html">
+                <i class="fas fa-house"></i> Accueil
+            </a>
+        </li>
+
+        <!-- Épreuve E5 dropdown -->
+        <li class="nav-dropdown">
+            <a href="Missions_v2.html">
+                <i class="fas fa-layer-group"></i> Épreuve E5
+                <i class="fas fa-chevron-down" style="font-size:0.65rem;margin-left:2px"></i>
+            </a>
+            <div class="dropdown-menu">
+                <a href="Missions.html" class="active">
+                    <i class="fas fa-bullseye"></i> Les 14 Missions
+                </a>
+                <a href="">
+                    <i class="fas fa-table"></i> Tableau de synthèse
+                </a>
+            </div>
+        </li>
+
+        <!-- Épreuve E6 dropdown -->
+        <li class="nav-dropdown">
+            <a href="Epreuve E6.html">
+                <i class="fas fa-folder-open"></i> Épreuve E6
+                <i class="fas fa-chevron-down" style="font-size:0.65rem;margin-left:2px"></i>
+            </a>
+            <div class="dropdown-menu">
+                <a href="projets.html">
+                    <i class="fas fa-rocket"></i> Projets
+                </a>
+                <a href="Veille_technologique.html">
+                    <i class="fas fa-rss"></i> Veille techno
+                </a>
+            </div>
+        </li>
+
+        <li>
+            <a href="Competences.html">
+                <i class="fas fa-star"></i> Compétences
+            </a>
+        </li>
+
+        <li>
+            <a href="Contact.html" class="nav-cta">
+                <i class="fas fa-paper-plane"></i> Contact
+            </a>
+        </li>
+    </ul>
+
+    <div class="nav-toggle" onclick="this.classList.toggle('open')">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
 
 	<section class="veille-section">
 		<div class="veille-container">

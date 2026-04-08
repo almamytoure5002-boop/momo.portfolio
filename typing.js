@@ -60,3 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
             button.classList.toggle('active');
             content.classList.toggle('active');
         }
+
+
+        function includeHeader() {
+    fetch("header.html")
+        .then(r => r.text())
+        .then(html => document.getElementById("header").innerHTML = html);
+}

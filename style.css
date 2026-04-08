@@ -1,56 +1,5 @@
 	/* Barre de navigation */
-	.Acceuil {
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-		overflow: hidden;
-		background-color: #f3f3f3;
-		position: fixed;
-  		top: 0;
- 		width: 100%;
- 		z-index: 1000;     /* très haut pour passer au-dessus */
-	}
-
-	nav a {
-		float: left;
-		display: block;
-		padding: 14px 16px; /* Ajoutez un peu de rembourrage entre chaque élément <a>*/
-		text-decoration: none; /*Supprime le sous-texte des liens*/
-		color: #666666;
-	  	text-align: center;
-	  	border-right: 1px solid #bbbbbb;
-
-	}
-
-	nav a:hover {
-		background-color: #dddddd;
-	}
-
-	nav a.active {
-  		background-color: #04AA6D;
-	}
-
-	nav a:last-child {
-  		border-right: none;
-	}
-
-	.menu {
-		float: right;
-		margin-left: auto;
-	}
-
-	div a.nom {
-    	text-decoration: none;
-    	padding: 14px 16px;
-    	float: left;
-    	color: blueviolet;
-	}
-
-
-	.nom:hover{
-		background-color: darkgray;
-		color: darkgoldenrod;
-	}
+	
 
 
 	/*body page 1*/
