@@ -3,1179 +3,451 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Compétences | Muhammed T</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-
-        /* ═══════════════════════════════════════════
-           NAVBAR
-        ═══════════════════════════════════════════ */
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            background: rgba(13,15,26,0.85);
-            border-bottom: 1px solid var(--border);
-            padding: 0 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 68px;
-            box-shadow: 0 4px 32px rgba(0,0,0,0.35);
-        }
-
-        .navbar-logo {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-            font-size: 1.25rem;
-            color: var(--text-hi);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            letter-spacing: -0.01em;
-        }
-
-        .navbar-logo .logo-dot {
-            width: 8px; height: 8px;
-            background: var(--accent-grd);
-            border-radius: 50%;
-            display: inline-block;
-            box-shadow: 0 0 10px rgba(109,40,217,0.8);
-            animation: pulse-dot 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse-dot {
-            0%,100% { transform: scale(1); opacity:1; }
-            50%      { transform: scale(1.4); opacity:0.7; }
-        }
-
-        .navbar-links {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            list-style: none;
-        }
-
-        .navbar-links a {
-            text-decoration: none;
-            color: var(--text-mid);
-            font-size: 0.88rem;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: all 0.25s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            white-space: nowrap;
-        }
-
-        .navbar-links a:hover {
-            color: var(--text-hi);
-            background: rgba(109,40,217,0.15);
-        }
-
-        .navbar-links a.active {
-            color: var(--text-hi);
-            background: rgba(109,40,217,0.2);
-            border: 1px solid var(--border-hi);
-        }
-
-        .navbar-links a i {
-            font-size: 0.8rem;
-            opacity: 0.75;
-        }
-
-        /* Dropdown pour E5 / E6 */
-        .nav-dropdown {
-            position: relative;
-        }
-
-        .nav-dropdown > a {
-            cursor: pointer;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 8px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(17,24,39,0.98);
-            border: 1px solid var(--border-hi);
-            border-radius: var(--radius-sm);
-            padding: 8px;
-            min-width: 180px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-            backdrop-filter: blur(20px);
-            z-index: 200;
-            animation: dropIn 0.2s ease;
-        }
-
-        @keyframes dropIn {
-            from { opacity:0; transform: translateX(-50%) translateY(-6px); }
-            to   { opacity:1; transform: translateX(-50%) translateY(0); }
-        }
-
-        .nav-dropdown:hover .dropdown-menu { display: block; }
-
-        .dropdown-menu a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 14px;
-            border-radius: 8px;
-            color: var(--text-mid);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-
-        .dropdown-menu a:hover {
-            color: var(--text-hi);
-            background: rgba(109,40,217,0.2);
-        }
-
-        .dropdown-menu a i {
-            width: 18px;
-            text-align: center;
-            color: #7c3aed;
-        }
-
-        .nav-cta {
-            background: var(--accent-grd) !important;
-            color: white !important;
-            font-weight: 600 !important;
-            border-radius: 8px !important;
-            padding: 8px 18px !important;
-            transition: opacity 0.2s, transform 0.2s !important;
-        }
-
-        .nav-cta:hover {
-            opacity: 0.9 !important;
-            transform: translateY(-1px) !important;
-            background: var(--accent-grd) !important;
-        }
-
-        /* Hamburger mobile */
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 4px;
-        }
-
-        .nav-toggle span {
-            display: block;
-            width: 24px; height: 2px;
-            background: var(--text-hi);
-            border-radius: 2px;
-            transition: all 0.3s;
-        }
-        /*___________________*/
-
-
         :root {
-            --primary-gradient: linear-gradient(135deg, blueviolet, #1f6feb);
-            --dark-bg: #1a1a2e;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --border-color: rgba(138, 43, 226, 0.3);
-            --hover-color: blueviolet;
-            --text-light: #c9d1d9;
-            --text-white: #f0f0f0;
+            --bg-dark: #090a11;
+            --card-bg: rgba(17, 19, 31, 0.6);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hi: rgba(124, 58, 237, 0.3);
+            --accent-grd: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+            --text-hi: #ffffff;
+            --text-mid: #94a3b8;
+            --radius-md: 16px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: var(--text-white);
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(79, 70, 229, 0.05) 0%, transparent 40%);
+            color: var(--text-mid);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* ════════════════════════════════════════
-           SECTION OUTILS & COMPÉTENCES TECHNIQUES
-        ════════════════════════════════════════ */
-        .tools-section {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        /* Navbar identique à ton accueil */
+        .navbar {
+            position: sticky; top: 0; z-index: 1000;
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            background: rgba(9, 10, 17, 0.8);
+            border-bottom: 1px solid var(--border);
+            padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 70px;
         }
 
-        .tools-inner {
-            max-width: 1200px;
-            margin: 0 auto;
+        .navbar-logo {
+            font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem;
+            color: var(--text-hi); text-decoration: none; display: flex; align-items: center; gap: 10px;
         }
 
-        .tools-main-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            text-align: center;
-            color: var(--text-white);
-            margin-bottom: 70px;
-            position: relative;
-            padding-bottom: 18px;
+        .logo-dot { width: 8px; height: 8px; background: var(--accent-grd); border-radius: 50%; box-shadow: 0 0 12px #7c3aed; }
+
+        .navbar-links { display: flex; list-style: none; gap: 10px; }
+        .navbar-links a {
+            text-decoration: none; color: var(--text-mid); font-size: 0.9rem; font-weight: 500;
+            padding: 8px 16px; border-radius: 8px; transition: 0.3s;
+        }
+        .navbar-links a:hover, .navbar-links a.active { color: var(--text-hi); background: rgba(124, 58, 237, 0.1); }
+        .nav-cta { background: var(--accent-grd); color: white !important; }
+
+        /* Section Titres */
+        .section-header {
+            text-align: center; padding: 80px 20px 40px;
         }
 
-        .tools-main-title span {
-            color: #1f6feb;
-            text-shadow: 0 0 20px rgba(31,111,235,0.5);
+        .section-header h1 {
+            font-family: 'Syne', sans-serif; font-size: 3rem; color: var(--text-hi); margin-bottom: 15px;
         }
 
-        .tools-main-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 120px; height: 4px;
-            background: var(--primary-gradient);
-            border-radius: 2px;
-        }
+        .section-header h1 span { background: var(--accent-grd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* Catégorie */
+        /* Grille des Outils */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
         .tools-category { margin-bottom: 60px; }
-
-        .tools-category-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: #7c8ead;
-            margin-bottom: 28px;
-            padding-left: 6px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .category-title {
+            font-family: 'Syne', sans-serif; font-size: 1.2rem; color: var(--text-hi);
+            margin-bottom: 25px; display: flex; align-items: center; gap: 15px;
         }
+        .category-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-        .tools-category-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(138,43,226,0.4), transparent);
-        }
-
-        /* Grille */
         .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 18px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px;
         }
 
-        /* Carte */
         .tool-card {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(138,43,226,0.2);
-            border-radius: 14px;
-            padding: 22px 10px 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            transition: transform 0.3s ease, border-color 0.3s ease,
-                        box-shadow 0.3s ease, background 0.3s ease;
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-md);
+            padding: 25px 15px; text-align: center; transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            backdrop-filter: blur(10px);
         }
 
         .tool-card:hover {
-            transform: translateY(-7px);
-            border-color: rgba(138,43,226,0.7);
-            box-shadow: 0 12px 35px rgba(138,43,226,0.25);
-            background: rgba(138,43,226,0.09);
+            transform: translateY(-5px); border-color: var(--border-hi);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.1);
         }
 
-        .tool-logo {
-            width: 52px; height: 52px;
-            object-fit: contain;
-            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
-            transition: filter 0.3s, transform 0.3s;
-        }
+        .tool-card img { height: 45px; margin-bottom: 15px; filter: grayscale(0.2); transition: 0.3s; }
+        .tool-card:hover img { filter: grayscale(0) scale(1.1); }
+        .tool-card span { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-mid); }
+        .tool-card:hover span { color: var(--text-hi); }
 
-        .tool-card:hover .tool-logo {
-            filter: drop-shadow(0 4px 14px rgba(138,43,226,0.5));
-            transform: scale(1.08);
-        }
-
-        .tool-icon-svg {
-            width: 52px; height: 52px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 2.1rem;
-        }
-
-        .tool-name {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--text-light);
-            text-align: center;
-            letter-spacing: 0.03em;
-            line-height: 1.3;
-            transition: color 0.3s;
-        }
-
-        .tool-card:hover .tool-name { color: var(--text-white); }
-
-        /* ════════════════════════════════════════
-           CERTIFICATIONS
-        ════════════════════════════════════════ */
-        .certifications-section {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #16213e 0%, #0f0f1e 100%);
-        }
-
-        .certifications-title {
-            font-size: 2.5rem;
-            color: white;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .certifications-title span { color: #1f6feb; }
-
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Certifications Modernes */
+        .certs-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 80px;
         }
 
         .cert-card {
-            background: linear-gradient(145deg, rgba(138,43,226,0.1), rgba(31,111,235,0.1));
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            border: 2px solid rgba(138,43,226,0.3);
-            transition: all 0.4s;
-            animation: float 4s ease-in-out infinite;
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-md);
+            padding: 30px; text-align: center; transition: 0.3s;
         }
 
-        .cert-card:hover {
-            border-color: blueviolet;
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(138,43,226,0.4);
-            animation: none;
+        .cert-card:hover { border-color: var(--border-hi); background: rgba(124, 58, 237, 0.05); }
+
+        .cert-icon { font-size: 3rem; margin-bottom: 20px; background: var(--accent-grd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .cert-card h3 { color: var(--text-hi); margin-bottom: 15px; font-family: 'Syne', sans-serif; }
+
+        .cert-btn {
+            display: inline-block; padding: 10px 20px; border-radius: 30px; border: 1px solid var(--border-hi);
+            color: var(--text-hi); text-decoration: none; font-size: 0.85rem; transition: 0.3s;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50%       { transform: translateY(-15px); }
+        .cert-btn:hover { background: var(--accent-grd); border-color: transparent; }
+
+        /* Tableau de Synthèse Design */
+        .table-wrapper {
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-md);
+            overflow: hidden; margin-bottom: 100px; backdrop-filter: blur(10px);
         }
 
-        .cert-card:nth-child(2) { animation-delay: 1s; }
-        .cert-card:nth-child(3) { animation-delay: 2s; }
-        .cert-card:nth-child(4) { animation-delay: 3s; }
+        table { width: 100%; border-collapse: collapse; color: var(--text-hi); }
 
-        .cert-image {
-            width: 100%; max-width: 200px; height: 200px;
-            object-fit: contain;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            background-color: rgba(255,255,255,0.1);
-            padding: 20px;
+        th { background: rgba(255,255,255,0.03); padding: 20px; text-align: left; font-family: 'Syne', sans-serif; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+
+        td { padding: 18px 20px; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: var(--text-mid); }
+
+        tr:hover td { background: rgba(124, 58, 237, 0.03); color: var(--text-hi); }
+
+        .badge {
+            padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
         }
+        .expert { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+        .avance { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
 
-        .cert-name {
-            font-size: 1.4rem;
-            color: #f0f0f0;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
+        .check-icon { color: #7c3aed; font-size: 1.1rem; }
 
-        .cert-link {
-            display: inline-block;
-            padding: 12px 25px;
-            background: linear-gradient(135deg, blueviolet, #1f6feb);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: all 0.3s;
-            margin-top: 10px;
-        }
-
-        .cert-link:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(138,43,226,0.5);
-        }
-
-        /* ════════════════════════════════════════
-           TABLEAU SIMPLE
-        ════════════════════════════════════════ */
-        .tableau-section {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        }
-
-        .tableau-title {
-            font-size: 2.5rem;
-            color: white;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .tableau-title span { color: #1f6feb; }
-
-        .tableau-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            overflow-x: auto;
-        }
-
-        .competences-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: linear-gradient(145deg, rgba(138,43,226,0.1), rgba(31,111,235,0.1));
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .competences-table thead {
-            background: linear-gradient(135deg, blueviolet, #1f6feb);
-        }
-
-        .competences-table th {
-            padding: 20px;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-align: left;
-        }
-
-        .competences-table td {
-            padding: 18px 20px;
-            color: #c9d1d9;
-            border-bottom: 1px solid rgba(138,43,226,0.2);
-        }
-
-        .competences-table tbody tr { transition: all 0.3s; }
-
-        .competences-table tbody tr:hover {
-            background-color: rgba(138,43,226,0.2);
-            transform: scale(1.01);
-        }
-
-        .competences-table tbody tr:last-child td { border-bottom: none; }
-
-        .niveau-badge {
-            display: inline-block;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .niveau-expert        { background: linear-gradient(135deg,#10b981,#059669); color:white; }
-        .niveau-avance        { background: linear-gradient(135deg,#3b82f6,#2563eb); color:white; }
-        .niveau-intermediaire { background: linear-gradient(135deg,#f59e0b,#d97706); color:white; }
-        .niveau-debutant      { background: linear-gradient(135deg,#ef4444,#dc2626); color:white; }
-
-        /* ════════════════════════════════════════
-           TABLEAU BTS COMPÉTENCES PAR PROJET
-        ════════════════════════════════════════ */
-        .skills-table-section {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #16213e 0%, #0f0f1e 100%);
-        }
-
-        .skills-table-container { max-width: 1400px; margin: 0 auto; }
-
-        .skills-table-title {
-            font-size: 2.5rem;
-            color: var(--text-white);
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .skills-table-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 100px; height: 4px;
-            background: var(--primary-gradient);
-            border-radius: 2px;
-        }
-
-        .skills-table-wrapper {
-            overflow-x: auto;
-            margin-top: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-        }
-
-        .skills-competences-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 2px solid var(--border-color);
-        }
-
-        .skills-competences-table thead { background: var(--primary-gradient); }
-
-        .skills-competences-table th {
-            padding: 1.5rem 1rem;
-            text-align: center;
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: white;
-            border-right: 1px solid rgba(255,255,255,0.2);
-            line-height: 1.4;
-        }
-
-        .skills-competences-table th:first-child { text-align: left; min-width: 180px; }
-        .skills-competences-table th:last-child  { border-right: none; }
-
-        .skills-competences-table td {
-            padding: 1.2rem 1rem;
-            text-align: center;
-            border: 1px solid rgba(138,43,226,0.2);
-            color: var(--text-light);
-        }
-
-        .skills-competences-table tbody tr { transition: all 0.3s ease; }
-        .skills-competences-table tbody tr:hover { background: rgba(138,43,226,0.1); }
-
-        .skills-project-name {
-            text-align: left !important;
-            font-weight: 600;
-            color: var(--text-white);
-            font-size: 1.05rem;
-        }
-
-        .skills-section-row {
-            background: linear-gradient(135deg, rgba(138,43,226,0.2), rgba(31,111,235,0.2));
-            text-align: center !important;
-            padding: 1.2rem !important;
-            font-weight: 600;
-            color: var(--text-white);
-            border: none !important;
-        }
-
-        .skills-section-row strong { font-size: 1.1rem; margin-right: 10px; }
-        .skills-section-row em    { color: #9ca3af; font-size: 0.95rem; }
-
-        .skills-cell-filled {
-            background: var(--primary-gradient);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .skills-cell-filled:hover {
-            transform: scale(1.15);
-            box-shadow: 0 5px 20px rgba(138,43,226,0.6);
-        }
-
-        .skills-cell-filled i { font-size: 1.5rem; color: white; transition: transform 0.3s ease; }
-        .skills-cell-filled:hover i { transform: rotate(360deg); }
-
-        .skills-cell-linkedin { background: linear-gradient(135deg,#0077b5,#00a0dc); }
-        .skills-cell-github   { background: linear-gradient(135deg,#24292e,#4a4a4a); }
-
-        .skills-table-button-wrapper { text-align: center; margin-top: 3rem; }
-
-        .skills-table-btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: var(--primary-gradient);
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(138,43,226,0.4);
-        }
-
-        .skills-table-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(138,43,226,0.6);
-        }
-
-        /* Modal */
-        .skills-modal {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0; top: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95);
-            animation: fadeIn 0.3s ease;
-        }
-
-        .skills-modal.active {
-            display: flex; align-items: center; justify-content: center;
-        }
-
-        .skills-modal-content {
-            position: relative;
-            max-width: 90%; max-height: 90%;
-            animation: zoomIn 0.3s ease;
-        }
-
-        .skills-modal-close {
-            position: absolute;
-            top: -40px; right: 0;
-            font-size: 3rem; color: white;
-            cursor: pointer; transition: all 0.3s ease; z-index: 10001;
-        }
-
-        .skills-modal-close:hover { color: blueviolet; transform: rotate(90deg); }
-
-        .skills-modal-nav {
-            position: absolute;
-            top: 50%; transform: translateY(-50%);
-            background: rgba(138,43,226,0.8);
-            color: white; border: none;
-            padding: 15px 20px; font-size: 1.5rem;
-            cursor: pointer; transition: all 0.3s ease; border-radius: 5px;
-        }
-
-        .skills-modal-nav:hover { background: blueviolet; }
-        .skills-modal-prev { left: 20px; }
-        .skills-modal-next { right: 20px; }
-
-        .skills-modal-image {
-            max-width: 100%; max-height: 80vh;
-            border-radius: 10px;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.8);
-        }
-
-        .skills-modal-counter {
-            position: absolute;
-            bottom: -40px; left: 50%; transform: translateX(-50%);
-            color: white; font-size: 1.2rem; font-weight: 600;
-        }
-
-        @keyframes fadeIn { from{opacity:0} to{opacity:1} }
-        @keyframes zoomIn {
-            from { opacity:0; transform:scale(0.8) }
-            to   { opacity:1; transform:scale(1)   }
-        }
-
-        /* ════════════════════════════════════════
-           RESPONSIVE
-        ════════════════════════════════════════ */
-        @media (max-width: 1024px) { .tools-grid { grid-template-columns: repeat(5,1fr); } }
         @media (max-width: 768px) {
-            .tools-grid { grid-template-columns: repeat(4,1fr); }
-            .tools-main-title, .certifications-title, .tableau-title, .skills-table-title { font-size: 2rem; }
-            .skills-competences-table th, .skills-competences-table td { padding:.8rem .5rem; font-size:.85rem; }
-            .skills-competences-table th:first-child { min-width: 120px; }
+            .navbar-links { display: none; }
+            .section-header h1 { font-size: 2.2rem; }
+            .tools-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        @media (max-width: 520px) { .tools-grid { grid-template-columns: repeat(3,1fr); } }
-        @media (max-width: 360px) { .tools-grid { grid-template-columns: repeat(2,1fr); } }
+        .synthese-section {
+    padding: 60px 20px;
+    background-color: #0f172a;
+    color: white;
+    font-family: sans-serif;
+}
+
+.synthese-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.synthese-title span { color: #fff; }
+
+.underline-gradient {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #a855f7, #3b82f6);
+    margin: 0 auto 40px;
+}
+
+.synthese-container {
+    overflow-x: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.synthese-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1e293b;
+    font-size: 0.9rem;
+}
+
+/* En-têtes */
+.main-header th {
+    background: linear-gradient(90deg, #7c3aed, #3b82f6);
+    padding: 20px 10px;
+    border: 1px solid #334155;
+    vertical-align: middle;
+}
+
+.sub-header th {
+    background-color: #334155;
+    padding: 10px;
+    font-style: italic;
+    color: #cbd5e1;
+}
+
+.sub-header span { color: #94a3b8; }
+
+/* Cellules */
+.synthese-table td, .synthese-table th {
+    border: 1px solid #334155;
+    text-align: center;
+}
+
+.projet-name {
+    text-align: left;
+    padding: 15px;
+    font-weight: bold;
+    background-color: #1e293b;
+}
+
+/* Couleurs des cases cochées */
+.cell-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.cell-icon:hover { transform: scale(1.1); }
+
+.gradient-bg {
+    background: linear-gradient(135deg, #a855f7, #3b82f6);
+}
+
+.blue-bg { background-color: #0077b5; } /* Couleur LinkedIn */
+
+.gray-bg { background-color: #334155; } /* Couleur GitHub */
+
+.col-projet { width: 150px; }
     </style>
 </head>
 <body>
 
-<nav class="navbar">
-    <a href="index.html" class="navbar-logo">
-        <span class="logo-dot"></span>
-        Portfolio BTS SIO
-    </a>
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <span class="logo-dot"></span>
+            Portfolio BTS SIO
+        </a>
+        <ul class="navbar-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="Missions.html">Épreuve E5</a></li>
+            <li><a href="projets.html">Épreuve E6</a></li>
+            <li><a href="Competences.html" class="active">Compétences</a></li>
+            <li><a href="Contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+    </nav>
 
-    <ul class="navbar-links">
-        <li>
-            <a href="index.html">
-                <i class="fas fa-house"></i> Accueil
-            </a>
-        </li>
+    <header class="section-header">
+        <div class="container">
+            <h1>Mes <span>Compétences</span></h1>
+            <p>Aperçu technique des outils et certifications acquis durant ma formation.</p>
+        </div>
+    </header>
 
-        <!-- Épreuve E5 dropdown -->
-        <li class="nav-dropdown">
-            <a href="Missions_v2.html">
-                <i class="fas fa-layer-group"></i> Épreuve E5
-                <i class="fas fa-chevron-down" style="font-size:0.65rem;margin-left:2px"></i>
-            </a>
-            <div class="dropdown-menu">
-                <a href="Missions.html" class="active">
-                    <i class="fas fa-bullseye"></i> Les 14 Missions
-                </a>
-                <a href="">
-                    <i class="fas fa-table"></i> Tableau de synthèse
-                </a>
+    <main class="container">
+        
+        <section class="tools-category">
+            <h2 class="category-title">Développement & Web</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5">
+                    <span>HTML5</span>
+                </div>
+                <div class="tool-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3">
+                    <span>CSS3</span>
+                </div>
+                <div class="tool-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="PHP">
+                    <span>PHP</span>
+                </div>
+                <div class="tool-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JS">
+                    <span>JavaScript</span>
+                </div>
+                <div class="tool-card">
+                    <img src="https://www.svgrepo.com/show/303251/mysql-logo.svg" alt="MySQL">
+                    <span>MySQL</span>
+                </div>
+                <div class="tool-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg" alt="Git">
+                    <span>Git</span>
+                </div>
             </div>
-        </li>
+        </section>
 
-        <!-- Épreuve E6 dropdown -->
-        <li class="nav-dropdown">
-            <a href="Epreuve E6.html">
-                <i class="fas fa-folder-open"></i> Épreuve E6
-                <i class="fas fa-chevron-down" style="font-size:0.65rem;margin-left:2px"></i>
-            </a>
-            <div class="dropdown-menu">
-                <a href="projets.html">
-                    <i class="fas fa-rocket"></i> Projets
-                </a>
-                <a href="Veille_technologique.html">
-                    <i class="fas fa-rss"></i> Veille techno
-                </a>
+        <section class="tools-category">
+            <h2 class="category-title">Infrastructures & Sécurité</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Debian-OpenLogo.svg" alt="Debian">
+                    <span>Debian</span>
+                </div>
+                <div class="tool-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Windows_logo_-_2012.svg/480px-Windows_logo_-_2012.svg.png" alt="Windows">
+                    <span>Windows Server</span>
+                </div>
+                <div class="tool-card">
+                    <img src="https://glpi-project.org/wp-content/uploads/2021/04/Logo-GLPI-2021.png" alt="GLPI">
+                    <span>GLPI</span>
+                </div>
+                <div class="tool-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Burp_Suite_Logo.png/480px-Burp_Suite_Logo.png" alt="Burp">
+                    <span>BurpSuite</span>
+                </div>
             </div>
-        </li>
+        </section>
 
-        <li>
-            <a href="Competences.html">
-                <i class="fas fa-star"></i> Compétences
-            </a>
-        </li>
-
-        <li>
-            <a href="Contact.html" class="nav-cta">
-                <i class="fas fa-paper-plane"></i> Contact
-            </a>
-        </li>
-    </ul>
-
-    <div class="nav-toggle" onclick="this.classList.toggle('open')">
-        <span></span><span></span><span></span>
+        <section class="tools-category">
+            <h2 class="category-title">Certifications Officielles</h2>
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <i class="fas fa-shield-halved cert-icon"></i>
+                    <h3>Secnum Académie</h3>
+                    <p style="margin-bottom: 20px;">Mooc de l'ANSSI sur la cybersécurité et l'hygiène informatique.</p>
+                    <a href="#" class="cert-btn">Consulter</a>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-fingerprint cert-icon"></i>
+                    <h3>Certification PIX</h3>
+                    <p style="margin-bottom: 20px;">Évaluation des compétences numériques transversales.</p>
+                    <a href="#" class="cert-btn">Consulter</a>
+                </div>
+            </div>
+        <section class="skills-section">
+    <h2 class="title">Tableau de <span>compétences</span></h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Compétence</th>
+                    <th>Catégorie</th>
+                    <th>Niveau</th>
+                    <th>Années d'expérience</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>HTML/CSS</strong></td>
+                    <td>Développement Web</td>
+                    <td><span class="badge expert">Expert</span></td>
+                    <td>3 ans</td>
+                </tr>
+                <tr>
+                    <td><strong>Debian</strong></td>
+                    <td>Système d'exploitation</td>
+                    <td><span class="badge avance">Avancé</span></td>
+                    <td>2 ans</td>
+                </tr>
+                <tr>
+                    <td><strong>PHP</strong></td>
+                    <td>Développement Backend</td>
+                    <td><span class="badge avance">Avancé</span></td>
+                    <td>2 ans</td>
+                </tr>
+                <tr>
+                    <td><strong>Windows Server</strong></td>
+                    <td>Système d'exploitation</td>
+                    <td><span class="badge intermediaire">Intermédiaire</span></td>
+                    <td>1.5 ans</td>
+                </tr>
+                <tr>
+                    <td><strong>AD (Active Directory)</strong></td>
+                    <td>Services d'Annuaire</td>
+                    <td><span class="badge avance">Avancé</span></td>
+                    <td>2 ans</td>
+                </tr>
+                <tr>
+                    <td><strong>DNS</strong></td>
+                    <td>Réseau</td>
+                    <td><span class="badge intermediaire">Intermédiaire</span></td>
+                    <td>1 an</td>
+                </tr>
+                <tr>
+                    <td><strong>Linux</strong></td>
+                    <td>Système d'exploitation</td>
+                    <td><span class="badge intermediaire">Intermédiaire</span></td>
+                    <td>1.5 ans</td>
+                </tr>
+                <tr>
+                    <td><strong>Labtainer</strong></td>
+                    <td>Cybersécurité</td>
+                    <td><span class="badge debutant">Débutant</span></td>
+                    <td>6 mois</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-</nav>
-    <!-- ════════════════════════════════════════════════════
-         SECTION : MES OUTILS & COMPÉTENCES TECHNIQUES
-    ════════════════════════════════════════════════════ -->
-    <section class="tools-section">
-        <div class="tools-inner">
-            <h2 class="tools-main-title">Mes <span>Outils</span> &amp; Compétences Techniques</h2>
+</section>
+<section class="synthese-section">
+    <h2 class="synthese-title">Tableau de <span>synthèse de Compétences</span></h2>
+    <div class="underline-gradient"></div>
 
-            <!-- ── Développement ── -->
-            <div class="tools-category">
-                <h3 class="tools-category-title">Développement</h3>
-                <div class="tools-grid">
-
-                    <div class="tool-card">
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg"
-                             alt="HTML5">
-                        <span class="tool-name">HTML5</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg"
-                             alt="CSS3">
-                        <span class="tool-name">CSS3</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg"
-                             alt="PHP">
-                        <span class="tool-name">PHP</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
-                             alt="JavaScript">
-                        <span class="tool-name">JavaScript</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg"
-                             alt="Java">
-                        <span class="tool-name">Java</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
-                             alt="Python">
-                        <span class="tool-name">Python</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <img class="tool-logo"
-                             src="https://www.svgrepo.com/show/303251/mysql-logo.svg"
-                             alt="MySQL">
-                        <span class="tool-name">MySQL</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg"
-                             alt="Git">
-                        <span class="tool-name">Git</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ── Outils Logiciels ── -->
-            <div class="tools-category">
-                <h3 class="tools-category-title">Outils Logiciels</h3>
-                <div class="tools-grid">
-
-                    <div class="tool-card">
-                        <!-- WAMP : fallback SVG maison si l'image ne charge pas -->
-                        <img class="tool-logo"
-                             src="https://www.wampserver.com/logo.png"
-                             alt="WAMP"
-                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <svg class="tool-icon-svg" style="display:none" viewBox="0 0 56 56">
-                            <rect width="56" height="56" rx="12" fill="#2E7D32"/>
-                            <text x="28" y="40" font-size="26" font-weight="900" text-anchor="middle" fill="white" font-family="Arial">W</text>
-                        </svg>
-                        <span class="tool-name">WAMP</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Burp_Suite_Logo.png/480px-Burp_Suite_Logo.png"
-                             alt="BurpSuite"
-                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <svg class="tool-icon-svg" style="display:none" viewBox="0 0 56 56">
-                            <rect width="56" height="56" rx="12" fill="#FF6633"/>
-                            <text x="28" y="40" font-size="26" font-weight="900" text-anchor="middle" fill="white" font-family="Arial">B</text>
-                        </svg>
-                        <span class="tool-name">BurpSuite</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Sublime_text_logo.svg/480px-Sublime_text_logo.svg.png"
-                             alt="Sublime Text"
-                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <svg class="tool-icon-svg" style="display:none" viewBox="0 0 56 56">
-                            <rect width="56" height="56" rx="12" fill="#FF9800"/>
-                            <text x="28" y="40" font-size="26" font-weight="900" text-anchor="middle" fill="white" font-family="Arial">S</text>
-                        </svg>
-                        <span class="tool-name">Sublime Text</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ── Systèmes d'Exploitation ── -->
-            <div class="tools-category">
-                <h3 class="tools-category-title">Systèmes d'Exploitation</h3>
-                <div class="tools-grid">
-
-                    <div class="tool-card">
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Debian-OpenLogo.svg"
-                             alt="Debian">
-                        <span class="tool-name">Debian</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png"
-                             alt="Linux">
-                        <span class="tool-name">Linux</span>
-                    </div>
-
-                    <div class="tool-card">
-                        <img class="tool-logo"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Windows_logo_-_2012.svg/480px-Windows_logo_-_2012.svg.png"
-                             alt="Windows">
-                        <span class="tool-name">Windows</span>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════════════
-         CERTIFICATIONS
-    ════════════════════════════════════════════════════ -->
-    <section class="certifications-section">
-        <h2 class="certifications-title"><span>Mes</span> Certifications</h2>
-        <div class="certifications-grid">
-            <div class="cert-card">
-                <img src="images/cert-secnum.png" alt="Certification Secnum" class="cert-image">
-                <h4 class="cert-name">Secnum Académie</h4>
-                <a href="#" class="cert-link">Voir ma certification</a>
-            </div>
-            <div class="cert-card">
-                <img src="images/cert-pix.png" alt="Certification Pix" class="cert-image">
-                <h4 class="cert-name">Pix</h4>
-                <a href="#" class="cert-link">Voir ma certification</a>
-            </div>
-            <div class="cert-card">
-                <img src="images/cert-3.png" alt="Certification 3" class="cert-image">
-                <h4 class="cert-name">Certification 3</h4>
-                <a href="#" class="cert-link">Voir ma certification</a>
-            </div>
-            <div class="cert-card">
-                <img src="images/cert-4.png" alt="Certification 4" class="cert-image">
-                <h4 class="cert-name">Certification 4</h4>
-                <a href="#" class="cert-link">Voir ma certification</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════════════
-         TABLEAU SIMPLE
-    ════════════════════════════════════════════════════ -->
-    <section class="tableau-section">
-        <h2 class="tableau-title">Tableau de <span>Compétences</span></h2>
-        <div class="tableau-container">
-            <table class="competences-table">
-                <thead>
-                    <tr>
-                        <th>Compétence</th>
-                        <th>Catégorie</th>
-                        <th>Niveau</th>
-                        <th>Années d'expérience</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>HTML/CSS</td>
-                        <td>Développement Web</td>
-                        <td><span class="niveau-badge niveau-expert">Expert</span></td>
-                        <td>3 ans</td>
-                    </tr>
-                    <tr>
-                        <td>Debian</td>
-                        <td>Système d'exploitation</td>
-                        <td><span class="niveau-badge niveau-avance">Avancé</span></td>
-                        <td>2 ans</td>
-                    </tr>
-                    <tr>
-                        <td>PHP</td>
-                        <td>Développement Backend</td>
-                        <td><span class="niveau-badge niveau-avance">Avancé</span></td>
-                        <td>2 ans</td>
-                    </tr>
-                    <tr>
-                        <td>Windows Server</td>
-                        <td>Système d'exploitation</td>
-                        <td><span class="niveau-badge niveau-intermediaire">Intermédiaire</span></td>
-                        <td>1.5 ans</td>
-                    </tr>
-                    <tr>
-                        <td>DNS</td>
-                        <td>Réseau</td>
-                        <td><span class="niveau-badge niveau-intermediaire">Intermédiaire</span></td>
-                        <td>1 an</td>
-                    </tr>
-                    <tr>
-                        <td>AD</td>
-                        <td>Gestion de version</td>
-                        <td><span class="niveau-badge niveau-avance">Avancé</span></td>
-                        <td>2 ans</td>
-                    </tr>
-                    <tr>
-                        <td>Linux</td>
-                        <td>Système d'exploitation</td>
-                        <td><span class="niveau-badge niveau-intermediaire">Intermédiaire</span></td>
-                        <td>1.5 ans</td>
-                    </tr>
-                    <tr>
-                        <td>Labtainer</td>
-                        <td>Cybersécurité</td>
-                        <td><span class="niveau-badge niveau-debutant">Débutant</span></td>
-                        <td>6 mois</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════════════
-         TABLEAU BTS — COMPÉTENCES PAR PROJET
-    ════════════════════════════════════════════════════ -->
-    <section class="skills-table-section" id="tb_synthèse">
-        <div class="skills-table-container">
-            <h2 class="skills-table-title">Tableau de synthèse de Compétences</h2>
-            <div class="skills-table-wrapper">
-                <table class="skills-competences-table">
-                    <thead>
-                        <tr>
-                            <th>Projet</th>
-                            <th>Gérer le patrimoine informatique</th>
-                            <th>Répondre aux incidents et aux demandes d'assistance</th>
-                            <th>Développer la présence en ligne</th>
-                            <th>Travailler en mode projet</th>
-                            <th>Mettre à disposition un service informatique</th>
-                            <th>Organiser son développement professionnel</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="7" class="skills-section-row">
-                                <strong>Exemple de réalisation au cours de mon BTS en formation</strong>
-                                <em>2025 - 2026</em>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="skills-project-name">LinkedIn</td>
-                            <td></td><td></td><td></td><td></td><td></td>
-                            <td class="skills-cell-filled skills-cell-linkedin"
-                                data-linkedin="https://www.linkedin.com/in/maria-benadjila-552bab360/">
-                                <i class="fab fa-linkedin"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="skills-project-name">Site Évasion</td>
-                            <td></td>
-                            <td class="skills-cell-filled" data-project="Blog Évasion"><i class="fas fa-image"></i></td>
-                            <td></td><td></td><td></td><td></td>
-                        </tr>
-                        <tr>
-                            <td class="skills-project-name">GLPI</td>
-                            <td class="skills-cell-filled" data-project="Installation de GLPI"><i class="fas fa-image"></i></td>
-                            <td></td><td></td><td></td><td></td><td></td>
-                        </tr>
-                        <tr>
-                            <td class="skills-project-name">WordPress</td>
-                            <td></td>
-                            <td class="skills-cell-filled" data-project="E-Enseignements"><i class="fas fa-image"></i></td>
-                            <td></td><td></td>
-                            <td class="skills-cell-filled skills-cell-github"
-                                data-github="https://github.com/mariane0511/E-Enseignement.git">
-                                <i class="fab fa-github"></i>
-                            </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="skills-project-name">Shopify</td>
-                            <td></td>
-                            <td class="skills-cell-filled" data-project="Shopify"><i class="fas fa-image"></i></td>
-                            <td></td><td></td><td></td><td></td>
-                        </tr>
-                        <tr>
-                            <td class="skills-project-name">Projet en C</td>
-                            <td></td>
-                            <td class="skills-cell-filled" data-project="Snake en C"><i class="fas fa-image"></i></td>
-                            <td></td><td></td>
-                            <td class="skills-cell-filled skills-cell-github"
-                                data-github="https://github.com/ibkaneki03/Projets_scolaire/blob/main/snake.c">
-                                <i class="fab fa-github"></i>
-                            </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="skills-project-name">Auto-école</td>
-                            <td class="skills-cell-filled" data-project="Autoecole"><i class="fas fa-image"></i></td>
-                            <td></td><td></td><td></td><td></td><td></td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="7" class="skills-section-row">
-                                <strong>Exemple de réalisation au cours de mes Stages</strong>
-                                <em>2025 - 2026</em>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="skills-project-name">Fast API</td>
-                            <td></td>
-                            <td class="skills-cell-filled" data-project="API"><i class="fas fa-image"></i></td>
-                            <td></td><td></td><td></td><td></td>
-                        </tr>
-                        <tr>
-                            <td class="skills-project-name">Blog personnel</td>
-                            <td></td>
-                            <td class="skills-cell-filled" data-project="MoodScents"><i class="fas fa-image"></i></td>
-                            <td></td><td></td><td></td><td></td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="7" class="skills-section-row">
-                                <strong>Activité de développement de compétences</strong>
-                                <em>2025 - 2026</em>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="skills-project-name">Coding game</td>
-                            <td></td><td></td>
-                            <td class="skills-cell-filled" data-project="Coding game"><i class="fas fa-image"></i></td>
-                            <td></td><td></td><td></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="skills-table-button-wrapper">
-                    <a href="docs/Competences.pdf" class="skills-table-btn">
-                        <i class="fas fa-download"></i> Voir le tableau complet
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal captures d'écran -->
-    <div id="skillsScreenshotModal" class="skills-modal">
-        <div class="skills-modal-content">
-            <span class="skills-modal-close">&times;</span>
-            <button class="skills-modal-nav skills-modal-prev"><i class="fas fa-chevron-left"></i></button>
-            <img id="skillsModalImage" class="skills-modal-image" src="" alt="Capture d'écran">
-            <button class="skills-modal-nav skills-modal-next"><i class="fas fa-chevron-right"></i></button>
-            <div class="skills-modal-counter">
-                <span id="skillsCurrentImageNumber">1</span> / <span id="skillsTotalImages">1</span>
-            </div>
-        </div>
+    <div class="synthese-container">
+        <table class="synthese-table">
+            <thead>
+                <tr class="main-header">
+                    <th class="col-projet">Projet</th>
+                    <th>Gérer le patrimoine informatique</th>
+                    <th>Répondre aux incidents et aux demandes d'assistance</th>
+                    <th>Développer la présence en ligne</th>
+                    <th>Travailler en mode projet</th>
+                    <th>Mettre à disposition un service informatique</th>
+                    <th>Organiser son développement professionnel</th>
+                </tr>
+                <tr class="sub-header">
+                    <th colspan="7">Exemple de réalisation au cours de mon BTS en formation <span>2025 - 2026</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="projet-name">LinkedIn</td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                    <td class="cell-icon blue-bg"><i class="fab fa-linkedin"></i></td>
+                </tr>
+                <tr>
+                    <td class="projet-name">Site Évasion</td>
+                    <td></td>
+                    <td class="cell-icon gradient-bg"><i class="fas fa-image"></i></td>
+                    <td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td class="projet-name">GLPI</td>
+                    <td class="cell-icon gradient-bg"><i class="fas fa-image"></i></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td class="projet-name">WordPress</td>
+                    <td></td>
+                    <td class="cell-icon gradient-bg"><i class="fas fa-image"></i></td>
+                    <td></td><td></td>
+                    <td class="cell-icon gray-bg"><i class="fab fa-github"></i></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="projet-name">Shopify</td>
+                    <td></td>
+                    <td class="cell-icon gradient-bg"><i class="fas fa-image"></i></td>
+                    <td></td><td></td><td></td><td></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-about">
-                <h3>À propos</h3>
-                <p>Étudiant en BTS SIO option SLAM passionné par le développement web et la cybersécurité.
-                   Découvrez mes projets, mon parcours et mes compétences à travers ce portfolio.</p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/muhammed-touray-938242348" class="social-link" target="_blank">in</a>
-                    <a href="#" class="social-link">📧</a>
-                    <a href="#" class="social-link">💻</a>
-                </div>
-            </div>
-
-            <div class="footer-links">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="#presentation">Présentation</a></li>
-                    <li><a href="#skills">Compétences</a></li>
-                    <li><a href="#experiences">Expériences</a></li>
-                    <li><a href="#projets">Projets</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-contact">
-                <h4>Contact</h4>
-                <div class="contact-item">
-                    <span class="contact-icon">📧</span>
-                    <a href="mailto:muhammadtouray3.002@gmail.com">muhammadtouray3.002@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">📱</span>
-                    <span>07 53 26 86 33</span>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">📍</span>
-                    <span>93200 Saint Denis</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-divider"></div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2025 Muhammed Touray. Tous droits non réservés.</p>
-        </div>
-    </footer>
+    </main>
 
 </body>
 </html>
