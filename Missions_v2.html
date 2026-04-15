@@ -814,7 +814,141 @@
             .synthese-grid { grid-template-columns: 1fr; }
             .hero-stats { flex-direction: column; gap: 16px; }
         }
-    </style>
+
+        /* Section Projets Complémentaires */
+/* Section & Titre */
+.projets-complementaires.dark-theme {
+    background-color: #0f172a; /* Fond sombre identique au tableau */
+    padding: 80px 20px;
+    color: white;
+}
+
+.title-missions {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    font-family: 'Syne', sans-serif;
+}
+
+.title-missions span {
+    background: linear-gradient(90deg, #a855f7, #3b82f6); /* Dégradé violet-bleu */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Grille et Cartes */
+.complementaire-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mission-card {
+    background-color: #161d2f; /* Couleur des cartes de missions */
+    /* MODIFICATION : On retire la bordure visible */
+    border: none; 
+    border-radius: 20px;
+    padding: 30px;
+    width: 350px;
+    transition: transform 0.3s ease;
+}
+
+.mission-card:hover {
+    transform: translateY(-10px);
+    /* MODIFICATION : On s'assure qu'aucune bordure n'apparaît au survol */
+    border: none; 
+}
+
+/* Éléments internes de la carte */
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3b82f6;
+    font-size: 1.5rem;
+}
+
+.icon-red {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.badge-number {
+    background: rgba(124, 58, 237, 0.2);
+    color: #a855f7;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.mission-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.tags-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+/* Dropdown Compétences */
+.comp-dropdown-dark {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Bouton PDF style Missions */
+.btn-view-pdf {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-view-pdf:hover {
+    background: rgba(124, 58, 237, 0.3);
+}</style>
 </head>
 <body>
 
@@ -1432,6 +1566,64 @@
 
     </div><!-- /missions-grid -->
 </div>
+
+<section class="projets-complementaires dark-theme">
+    <div class="header-complementaire">
+        <h2 class="title-missions">Projets <span>Complémentaires</span></h2>
+    </div>
+
+    <div class="complementaire-grid">
+        <div class="mission-card">
+            <div class="card-top">
+                <div class="icon-box">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <span class="badge-number">E5</span>
+            </div>
+            
+            <h3>Load Balancing HAProxy</h3>
+            
+            <div class="tags-row">
+                <span class="tag">Réseau</span>
+                <span class="tag">Linux</span>
+            </div>
+            
+            <div class="comp-dropdown-dark">
+                <span>COMPÉTENCES</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            
+            <a href="#" class="btn-view-pdf">
+                <i class="fas fa-file-pdf"></i> Voir le PDF
+            </a>
+        </div>
+
+        <div class="mission-card">
+            <div class="card-top">
+                <div class="icon-box icon-red">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <span class="badge-number">E5</span>
+            </div>
+            
+            <h3>Haute Disponibilité Heartbeat</h3>
+
+            <div class="tags-row">
+                <span class="tag">Sécurité</span>
+                <span class="tag">Cluster</span>
+            </div>
+            
+            <div class="comp-dropdown-dark">
+                <span>COMPÉTENCES</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            
+            <a href="#" class="btn-view-pdf">
+                <i class="fas fa-file-pdf"></i> Voir le PDF
+            </a>
+        </div>
+    </div>
+</section>
 
 
 <!-- FOOTER -->
