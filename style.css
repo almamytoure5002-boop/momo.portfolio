@@ -1,5 +1,129 @@
 	/* Barre de navigation */
 	
+  /* ═══════════════════════════════════════════
+   HEADER / NAVBAR
+═══════════════════════════════════════════ */
+.Acceuil {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    background: rgba(13, 15, 26, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(138, 43, 226, 0.22);
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* Logo / Nom */
+div a.nom {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #f0f0f0;
+    padding: 8px 14px;
+    border-radius: 8px;
+    letter-spacing: 0.02em;
+    transition: color 0.25s ease, background 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+div a.nom::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, blueviolet, #1f6feb);
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
+    animation: pulse-dot 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { transform: scale(1);   opacity: 1; }
+    50%       { transform: scale(1.4); opacity: 0.7; }
+}
+
+.nom:hover {
+    color: #a78bfa;
+    background: rgba(138, 43, 226, 0.12);
+}
+
+/* Menu nav */
+nav.menu {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+nav.menu a {
+    float: none;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #94a3b8;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border-right: none;
+    transition: color 0.25s ease, background 0.25s ease;
+    white-space: nowrap;
+}
+
+nav.menu a:hover {
+    color: #f0f0f0;
+    background: rgba(138, 43, 226, 0.15);
+}
+
+nav.menu a.active {
+    color: #f0f0f0;
+    background: rgba(138, 43, 226, 0.2);
+    border: 1px solid rgba(138, 43, 226, 0.6);
+}
+
+/* Dernier lien = bouton CTA */
+nav.menu a:last-child {
+    background: linear-gradient(135deg, blueviolet, #1f6feb);
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    padding: 8px 18px;
+    margin-left: 6px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+nav.menu a:last-child:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+    background: linear-gradient(135deg, blueviolet, #1f6feb);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .Acceuil {
+        padding: 0 20px;
+        flex-wrap: wrap;
+        height: auto;
+        min-height: 68px;
+    }
+
+    nav.menu {
+        display: none; /* tu peux ajouter un hamburger JS si besoin */
+    }
+}
+
 
 
 	/*body page 1*/
