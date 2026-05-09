@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compétences | Muhammed T</title>
-    <link rel="stylesheet" href="style.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -236,19 +235,19 @@
 </head>
 <body>
 
-    <header class="Acceuil">
-        <div>
-            <a class="nom" href="">Muhammmed Touray</a>
-        </div>
-        <nav class="menu">
-            <a href="index.html">Accueil</a>
-            <a href="Competences.html">Compétences</a>
-            <a href="Veille_technologique.html">Veille technologique</a>
-            <a href="Contact.html">Contact</a>
-            <a href="projets.html">Epreuve E5</a>
-            <a href="Realisation_pro.html">Epreuve E6</a>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <span class="logo-dot"></span>
+            Portfolio BTS SIO
+        </a>
+        <ul class="navbar-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="Missions.html">Épreuve E5</a></li>
+            <li><a href="projets.html">Épreuve E6</a></li>
+            <li><a href="Competences.html" class="active">Compétences</a></li>
+            <li><a href="Contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+    </nav>
 
     <header class="section-header">
         <div class="container">
@@ -275,10 +274,6 @@
                     <span>PHP</span>
                 </div>
                 <div class="tool-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JS">
-                    <span>JavaScript</span>
-                </div>
-                <div class="tool-card">
                     <img src="https://www.svgrepo.com/show/303251/mysql-logo.svg" alt="MySQL">
                     <span>MySQL</span>
                 </div>
@@ -297,11 +292,11 @@
                     <span>Debian</span>
                 </div>
                 <div class="tool-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Windows_logo_-_2012.svg/480px-Windows_logo_-_2012.svg.png" alt="Windows">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" alt="Windows">
                     <span>Windows Server</span>
                 </div>
                 <div class="tool-card">
-                    <img src="https://glpi-project.org/wp-content/uploads/2021/04/Logo-GLPI-2021.png" alt="GLPI">
+                    <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/glpi.svg" alt="GLPI">
                     <span>GLPI</span>
                 </div>
             
@@ -353,8 +348,8 @@
                 <tr>
                     <td><strong>Windows Server</strong></td>
                     <td>Système d'exploitation</td>
-                    <td><span class="badge intermediaire">Intermédiaire</span></td>
-                    <td>1.5 ans</td>
+                    <td><span class="badge intermediaire">Avancé</span></td>
+                    <td>2 ans</td>
                 </tr>
                 <tr>
                     <td><strong>AD (Active Directory)</strong></td>
@@ -365,8 +360,8 @@
                 <tr>
                     <td><strong>DNS</strong></td>
                     <td>Réseau</td>
-                    <td><span class="badge intermediaire">Intermédiaire</span></td>
-                    <td>1 an</td>
+                    <td><span class="badge intermediaire">Avancé</span></td>
+                    <td>2 ans</td>
                 </tr>
                 <tr>
                     <td><strong>Linux</strong></td>
@@ -421,20 +416,14 @@
                     <td class="cell-icon gradient-bg"><i class="fas fa-image"></i></td>
                     <td></td><td></td><td></td><td></td><td></td>
                 </tr>
-                <tr>
-                    <td class="projet-name">WordPress</td>
+                
                     <td></td>
                     <td class="cell-icon gradient-bg"><i class="fas fa-image"></i></td>
                     <td></td><td></td>
                     <td class="cell-icon gray-bg"><i class="fab fa-github"></i></td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td class="projet-name">Shopify</td>
-                    <td></td>
-                    <td class="cell-icon gradient-bg"><i class="fas fa-image"></i></td>
-                    <td></td><td></td><td></td><td></td>
-                </tr>
+                
             </tbody>
         </table>
     </div>
